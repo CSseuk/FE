@@ -1,4 +1,4 @@
-# Dongguk Likelion App Frontend
+# CSseuk
 
 > CS앱 CSseuk을 위한 프론트엔드 저장소입니다.
 
