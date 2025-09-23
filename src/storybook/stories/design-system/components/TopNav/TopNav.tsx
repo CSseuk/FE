@@ -30,6 +30,7 @@ export default function TopNav({
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: 24,
+          backgroundColor: theme.colors.Neutral.N0,
         }}
       >
         <Image source={require('../../../../../assets/images/Logo.svg')} />
@@ -45,6 +46,7 @@ export default function TopNav({
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: 24,
+          backgroundColor: theme.colors.Neutral.N0,
         }}
       >
         <Text
@@ -68,6 +70,7 @@ export default function TopNav({
         alignItems: 'center',
         padding: 24,
         columnGap: 4,
+        backgroundColor: theme.colors.Neutral.N0,
       }}
     >
       {leftIconName && (
