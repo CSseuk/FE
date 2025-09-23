@@ -6,7 +6,7 @@ import '@storybook/addon-ondevice-actions/register';
 import '@storybook/addon-ondevice-controls/register';
 
 configure(() => {
-  require('../storybook/stories');
+  require('../src/storybook/stories');
 }, module);
 
 const StorybookUIRoot = getStorybookUI({
