@@ -33,7 +33,7 @@ export default function TopNav({
           backgroundColor: theme.colors.Neutral.N0,
         }}
       >
-        <Image source={require('../../../../../assets/images/Logo.svg')} />
+        <Image source={require('@src/assets/images/Logo.png')} />
       </View>
     );
   }
