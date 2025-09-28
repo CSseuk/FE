@@ -24,7 +24,7 @@
     "axios": "^1.10.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
-    "expo": "53.0.22",
+    "expo": "~53.0.23",
     "expo-app-loading": "2.1.1",
     "expo-auth-session": "~6.2.1",
     "expo-font": "~13.3.2",
