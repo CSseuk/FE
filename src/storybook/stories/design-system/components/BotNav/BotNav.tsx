@@ -42,9 +42,13 @@ const item: NavItem[] = [
   },
 ];
 
-export default function BotNav() {
+type BotNavProps = {
+  selected: number;
+  onSelect: (id: number) => void;
+};
+
+export default function BotNav({ selected, onSelect }: BotNavProps) {
   const theme = useTheme();
-  const [selected, setSelected] = useState<number>(1);
 
   return (
     <View
@@ -72,7 +76,7 @@ export default function BotNav() {
         return (
           <Pressable
             key={item.id}
-            onPress={() => setSelected(item.id)}
+            onPress={() => onSelect(item.id)}
             style={{
               flex: 1,
               alignItems: 'center',

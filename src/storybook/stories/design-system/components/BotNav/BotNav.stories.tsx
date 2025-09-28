@@ -1,5 +1,5 @@
 // src/storybook/stories/design-system/components/BotNav/BotNav.stories.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { View, ScrollView, Text, SafeAreaView, Platform } from 'react-native';
 import { ThemeProvider } from '@emotion/react';
@@ -35,19 +35,25 @@ const Section = ({
 );
 
 // 1) 기본: 바텀에 고정된 BotNav만 보여주기 (탭 눌러가며 확인)
-const Basic = () => (
-  <View style={{ alignSelf: 'stretch' }}>
-    <BotNav />
-  </View>
-);
+const Basic = () => {
+  const [selected, setSelected] = useState(1);
+  return (
+    <View style={{ alignSelf: 'stretch' }}>
+      <BotNav selected={selected} onSelect={setSelected} />
+    </View>
+  );
+};
 
 // 2) 다양한 배경에서 그림자/대비 확인
 const BackgroundCases = () => {
+  const [selected, setSelected] = useState(1);
+
   const cases = [
     { name: 'App BG (N10)', color: theme.colors.Neutral.N10 },
     { name: 'White', color: theme.colors.Neutral.N0 },
     { name: 'Dark', color: '#0B0B0C' },
   ];
+
   return (
     <ScrollView>
       {cases.map((c) => (
@@ -62,7 +68,7 @@ const BackgroundCases = () => {
           >
             {/* 바텀 고정 느낌을 위해 내부 컨테이너 */}
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-              <BotNav />
+              <BotNav selected={selected} onSelect={setSelected} />
             </View>
           </View>
         </Section>
@@ -72,40 +78,44 @@ const BackgroundCases = () => {
 };
 
 // 3) 가짜 콘텐츠 위에 얹어서 실제 레이아웃 느낌 테스트
-const WithMockContent = () => (
-  <View style={{ flex: 1 }}>
-    <View
-      style={{
-        flex: 1,
-        padding: 16,
-        backgroundColor: theme.colors.Neutral.N10,
-      }}
-    >
-      <Text style={[theme.typography.Body1, { marginBottom: 12 }]}>
-        스크롤되는 콘텐츠 영역 (mock)
-      </Text>
+const WithMockContent = () => {
+  const [selected, setSelected] = useState(1);
+
+  return (
+    <View style={{ flex: 1 }}>
       <View
         style={{
-          height: 300,
-          borderRadius: 12,
-          backgroundColor: theme.colors.Neutral.N0,
-          ...(Platform.OS === 'web'
-            ? { boxShadow: '0 1px 8px rgba(0,0,0,0.08)' }
-            : {
-                shadowColor: theme.colors.Black,
-                shadowOffset: { width: 0, height: 1 },
-                shadowOpacity: 0.08,
-                shadowRadius: 4,
-                elevation: 2,
-              }),
+          flex: 1,
+          padding: 16,
+          backgroundColor: theme.colors.Neutral.N10,
         }}
-      />
-    </View>
+      >
+        <Text style={[theme.typography.Body1, { marginBottom: 12 }]}>
+          스크롤되는 콘텐츠 영역 (mock)
+        </Text>
+        <View
+          style={{
+            height: 300,
+            borderRadius: 12,
+            backgroundColor: theme.colors.Neutral.N0,
+            ...(Platform.OS === 'web'
+              ? { boxShadow: '0 1px 8px rgba(0,0,0,0.08)' }
+              : {
+                  shadowColor: theme.colors.Black,
+                  shadowOffset: { width: 0, height: 1 },
+                  shadowOpacity: 0.08,
+                  shadowRadius: 4,
+                  elevation: 2,
+                }),
+          }}
+        />
+      </View>
 
-    {/* 바텀에 BotNav */}
-    <BotNav />
-  </View>
-);
+      {/* 바텀에 BotNav */}
+      <BotNav selected={selected} onSelect={setSelected} />
+    </View>
+  );
+};
 
 storiesOf('Components/BotNav (column)', module)
   .addDecorator(withTheme)
