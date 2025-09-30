@@ -5,6 +5,7 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
+      "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@screens/*": ["src/screens/*"],
       "@stores/*": ["src/stores/*"],

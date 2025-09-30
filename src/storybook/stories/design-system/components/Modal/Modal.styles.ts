@@ -47,3 +47,9 @@ export const ButtonContainer = styled.View<{ buttonType: ButtonType }>`
 export const ButtonFlex = styled.View`
   flex: 1;
 `;
+
+export const ExitButton = styled.Pressable`
+  position: absolute;
+  top: 24px;
+  right: 24px;
+`;

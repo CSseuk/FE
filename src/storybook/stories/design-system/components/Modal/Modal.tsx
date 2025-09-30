@@ -1,7 +1,7 @@
 import { useModal } from "@contexts/ModalProvider";
 import Button from "../Button/Button";
 import * as S from "./Modal.styles";
-import { ScrollView } from "react-native";
+import { ScrollView, ImageSourcePropType, Image } from "react-native";
 import React from "react";
 
 export type ButtonType = "single" | "double";
@@ -9,7 +9,7 @@ export type ButtonType = "single" | "double";
 interface ModalProps {
   buttonType?: ButtonType;
   exitButton?: boolean;
-  title: string;
+  title?: string;
   content?: string;
   onConfirm?: () => void;
   onCancel: () => void;
@@ -43,6 +43,8 @@ export default function Modal({
     }
   };
 
+  const icon: ImageSourcePropType = require("@assets/images/x_24_Default.png");
+
   return (
     <S.ModalContainer>
       <S.ModalContent>
@@ -55,7 +57,7 @@ export default function Modal({
           }}
           showsVerticalScrollIndicator={false}
         >
-          <S.Title>{title}</S.Title>
+          {title && <S.Title>{title}</S.Title>}
           {/* children이 있으면 children, 아니면 content 렌더 */}
           {children ? children : <S.Content>{content}</S.Content>}
         </ScrollView>
@@ -65,16 +67,21 @@ export default function Modal({
               <S.ButtonFlex>
                 <Button
                   onPress={handleClose}
-                  title="취소"
-                  size="M"
-                  button="Tertiary"
+                  title='취소'
+                  size='M'
+                  button='Tertiary'
                 />
               </S.ButtonFlex>
             )}
             <S.ButtonFlex>
-              <Button onPress={handleConfirm} title="확인" size="M" />
+              <Button onPress={handleConfirm} title='확인' size='M' />
             </S.ButtonFlex>
           </S.ButtonContainer>
+        )}
+        {exitButton && (
+          <S.ExitButton>
+            <Image source={icon} style={{ width: 24, height: 24 }} />
+          </S.ExitButton>
         )}
       </S.ModalContent>
     </S.ModalContainer>
