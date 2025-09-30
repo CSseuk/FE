@@ -11,6 +11,12 @@ const withTheme = (Story: React.ComponentType) => (
   </ThemeProvider>
 );
 
+// CheckModal - 단일 확인 버튼만 있는 단순 알림용 모달
+// 필수 props:
+//   - title: 모달 상단 제목
+//   - content (또는 children): 모달 본문
+//   - buttonType="single": 단일 버튼 모드
+//   - onCancel: 확인 버튼 클릭 시 실행되는 핸들러
 const CheckModal = () => {
   return (
     <Modal
@@ -22,6 +28,13 @@ const CheckModal = () => {
   );
 };
 
+// ConfirmModal - 확인/취소 두 개의 버튼이 있는 선택용 모달
+// 필수 props:
+//   - title: 모달 상단 제목
+//   - content (또는 children): 모달 본문
+//   - buttonType="double": 확인/취소 버튼 모드
+//   - onCancel: 취소 버튼 클릭 시 실행되는 핸들러
+//   - onConfirm: 확인 버튼 클릭 시 실행되는 핸들러
 const ConfirmModal = () => {
   return (
     <Modal
@@ -34,13 +47,18 @@ const ConfirmModal = () => {
   );
 };
 
+// ContentModal - 닫기(X) 버튼만 있는 정보 표시용 모달
+// 필수 props:
+//   - content (또는 children): 모달 본문
+//   - onCancel: 닫기 버튼 클릭 시 실행되는 핸들러
+//   - exitButton={true}: 닫기(X) 버튼 활성화
 const ContentModal = () => {
   return (
-    <Modal content='Content Modal' onCancel={() => {}} exitButton={true} />
+    <Modal content={"Content\nModal"} onCancel={() => {}} exitButton={true} />
   );
 };
 
-storiesOf("Components/Modal (column)", module)
+storiesOf("Components/Modal", module)
   .addDecorator(withTheme)
   .add("Check Modal", () => <CheckModal />)
   .add("Confirm Modal", () => <ConfirmModal />)
