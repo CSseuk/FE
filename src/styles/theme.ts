@@ -40,7 +40,7 @@ const theme = {
       R400: "#861b00",
       R500: "#751700",
     },
-    Sementic: {
+    Semantic: {
       dataStructure: {
         light: "#FFFBC9",
         dark: "#616123",

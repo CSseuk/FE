@@ -25,7 +25,7 @@ const Label = ({
   const isAll = kind === "all";
   const basePalette = isAll
     ? { light: theme.colors.Blue.B50, dark: theme.colors.Blue.B200 }
-    : theme.colors.Sementic?.[kind as QuizType];
+    : theme.colors.Semantic?.[kind as QuizType];
 
   const bgLight = basePalette.light;
   const dark = basePalette.dark;
