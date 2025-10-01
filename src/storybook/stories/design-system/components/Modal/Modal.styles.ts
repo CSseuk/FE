@@ -1,5 +1,5 @@
-import styled from "@emotion/native";
-import type { ButtonType } from "./Modal";
+import styled from '@emotion/native';
+import type { ButtonType } from './Modal';
 
 export const ModalContainer = styled.View`
   position: absolute;
@@ -41,7 +41,7 @@ export const ButtonContainer = styled.View<{ buttonType: ButtonType }>`
   gap: 10px;
   align-self: stretch;
   justify-content: ${({ buttonType }) =>
-    buttonType === "single" ? "center" : "space-between"};
+    buttonType === 'single' ? 'center' : 'space-between'};
 `;
 
 export const ButtonFlex = styled.View`

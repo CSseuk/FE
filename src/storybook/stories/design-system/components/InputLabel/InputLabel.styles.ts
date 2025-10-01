@@ -1,4 +1,4 @@
-import styled from "@emotion/native";
+import styled from '@emotion/native';
 
 export const InputLabelContainer = styled.View`
   gap: 8px;
@@ -22,3 +22,9 @@ export const Caption = styled.Text(({ theme }) => ({
   ...theme.typography.Body3,
   color: theme.colors.Neutral.N200,
 }));
+
+export const TextInputBox = styled.TextInput`
+  flex: 1;
+  color: ${({ theme }) => theme.colors.Neutral.N600};
+  margin-left: 4;
+`;

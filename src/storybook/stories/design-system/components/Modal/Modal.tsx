@@ -1,10 +1,10 @@
-import { useModal } from "@contexts/ModalProvider";
-import Button from "../Button/Button";
-import * as S from "./Modal.styles";
-import type { ImageSourcePropType } from "react-native";
-import React from "react";
+import { useModal } from '@contexts/ModalProvider';
+import Button from '../Button/Button';
+import * as S from './Modal.styles';
+import type { ImageSourcePropType } from 'react-native';
+import React from 'react';
 
-export type ButtonType = "single" | "double";
+export type ButtonType = 'single' | 'double';
 
 interface ModalProps {
   buttonType?: ButtonType;
@@ -43,7 +43,7 @@ export default function Modal({
     }
   };
 
-  const icon: ImageSourcePropType = require("@assets/images/x_24_Default.png");
+  const icon: ImageSourcePropType = require('@assets/images/x_24_Default.png');
 
   return (
     <S.ModalContainer>
@@ -51,8 +51,8 @@ export default function Modal({
         <S.ScrollContainer
           contentContainerStyle={{
             flexGrow: 1,
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
           }}
           showsVerticalScrollIndicator={false}
         >
@@ -62,7 +62,7 @@ export default function Modal({
         </S.ScrollContainer>
         {buttonType && (
           <S.ButtonContainer buttonType={buttonType}>
-            {buttonType === "double" && (
+            {buttonType === 'double' && (
               <S.ButtonFlex>
                 <Button
                   onPress={handleClose}

@@ -1,11 +1,11 @@
-import React from "react";
-import { storiesOf } from "@storybook/react-native";
-import { ThemeProvider } from "@emotion/react";
-import Modal from "./Modal";
-import Button from "../Button/Button";
-import theme from "@styles/theme";
-import { ModalProvider, useModal } from "@contexts/ModalProvider";
-import { View } from "react-native";
+import React from 'react';
+import { storiesOf } from '@storybook/react-native';
+import { ThemeProvider } from '@emotion/react';
+import Modal from './Modal';
+import Button from '../Button/Button';
+import theme from '@styles/theme';
+import { ModalProvider, useModal } from '@contexts/ModalProvider';
+import { View } from 'react-native';
 
 const withTheme = (Story: React.ComponentType) => (
   <ThemeProvider theme={theme}>
@@ -25,7 +25,7 @@ const CheckModal = () => {
   return (
     <Modal
       title='🎉 가입 완료 🎉'
-      content={"이제 CS 문제를 쓱 풀고,\n나만의 기록을 쌓아보세요."}
+      content={'이제 CS 문제를 쓱 풀고,\n나만의 기록을 쌓아보세요.'}
       buttonType='single'
       onCancel={() => {}}
     />
@@ -43,10 +43,10 @@ const ConfirmModal = () => {
   return (
     <Modal
       title='북마크를 해제하시겠어요?'
-      content={"해제한 문제는 \n북마크 목록에서 사라져요."}
+      content={'해제한 문제는 \n북마크 목록에서 사라져요.'}
       buttonType='double'
       onCancel={() => {}}
-      onConfirm={() => alert("confirm")}
+      onConfirm={() => alert('confirm')}
     />
   );
 };
@@ -58,7 +58,7 @@ const ConfirmModal = () => {
 //   - exitButton={true}: 닫기(X) 버튼 활성화
 const ContentModal = () => {
   return (
-    <Modal content={"Content\nModal"} onCancel={() => {}} exitButton={true} />
+    <Modal content={'Content\nModal'} onCancel={() => {}} exitButton={true} />
   );
 };
 
@@ -96,9 +96,9 @@ const ModalSimulation = () => {
   );
 };
 
-storiesOf("Components/Modal", module)
+storiesOf('Components/Modal', module)
   .addDecorator(withTheme)
-  .add("Modal Simulation", () => <ModalSimulation />)
-  .add("Check Modal", () => <CheckModal />)
-  .add("Confirm Modal", () => <ConfirmModal />)
-  .add("Content Modal", () => <ContentModal />);
+  .add('Modal Simulation', () => <ModalSimulation />)
+  .add('Check Modal', () => <CheckModal />)
+  .add('Confirm Modal', () => <ConfirmModal />)
+  .add('Content Modal', () => <ContentModal />);

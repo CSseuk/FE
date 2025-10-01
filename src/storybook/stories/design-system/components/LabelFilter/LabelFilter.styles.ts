@@ -1,11 +1,11 @@
-import styled from "@emotion/native";
+import styled from '@emotion/native';
 
 export const Wrapper = styled.View<{
   bg: string;
   border: string;
   disabled: boolean;
 }>(({ bg, border, disabled, theme }) => ({
-  alignSelf: "flex-start",
+  alignSelf: 'flex-start',
   paddingVertical: 8,
   paddingHorizontal: 14,
   borderRadius: 8,

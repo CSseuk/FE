@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import theme from "@styles/theme";
-import { Feather } from "@expo/vector-icons";
-import * as S from "./InputLabel.styles";
-import { View, Image, TextInput } from "react-native";
+import React, { useState } from 'react';
+import theme from '@styles/theme';
+import { Feather } from '@expo/vector-icons';
+import * as S from './InputLabel.styles';
+import { View, Image, TextInput } from 'react-native';
 
-type FeatherName = React.ComponentProps<typeof Feather>["name"];
+type FeatherName = React.ComponentProps<typeof Feather>['name'];
 
-type size = "S" | "M" | "L";
+type size = 'S' | 'M' | 'L';
 
 type Props = {
   size?: size;
@@ -23,7 +23,7 @@ type Props = {
 };
 
 export default function InputLabel({
-  size = "L",
+  size = 'L',
   disabled = false,
   label,
   caption,
@@ -118,7 +118,7 @@ export default function InputLabel({
           borderRadius: radius,
           borderColor: borderColor,
           borderWidth: 1,
-          shadowColor: isFocused ? theme.colors.Blue.B75 : "transparent",
+          shadowColor: isFocused ? theme.colors.Blue.B75 : 'transparent',
           shadowOpacity: 1,
           shadowRadius: 4,
           shadowOffset: { width: 0, height: 0 },
@@ -129,11 +129,8 @@ export default function InputLabel({
         onResponderTerminationRequest={() => false}
       >
         {buildLeftIcon()}
-        <TextInput
-          style={[
-            font,
-            { flex: 1, color: theme.colors.Neutral.N600, marginLeft: 4 },
-          ]}
+        <S.TextInputBox
+          style={font}
           placeholder={placeholder}
           placeholderTextColor={theme.colors.Neutral.N100}
           editable={!disabled}
