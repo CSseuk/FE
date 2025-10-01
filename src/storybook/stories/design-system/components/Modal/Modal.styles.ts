@@ -53,3 +53,12 @@ export const ExitButton = styled.Pressable`
   top: 24px;
   right: 24px;
 `;
+
+export const ScrollContainer = styled.ScrollView`
+  width: 100%;
+`;
+
+export const Image = styled.Image`
+  width: 24px;
+  height: 24px;
+`;

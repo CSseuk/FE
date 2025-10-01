@@ -2,11 +2,16 @@ import React from "react";
 import { storiesOf } from "@storybook/react-native";
 import { ThemeProvider } from "@emotion/react";
 import Modal from "./Modal";
+import Button from "../Button/Button";
 import theme from "@styles/theme";
+import { ModalProvider, useModal } from "@contexts/ModalProvider";
+import { View } from "react-native";
 
 const withTheme = (Story: React.ComponentType) => (
   <ThemeProvider theme={theme}>
-    <Story />
+    <ModalProvider>
+      <Story />
+    </ModalProvider>
   </ThemeProvider>
 );
 
@@ -57,8 +62,43 @@ const ContentModal = () => {
   );
 };
 
+const TriggerButton = ({
+  label,
+  onPress,
+}: {
+  label: string;
+  onPress: () => void;
+}) => <Button onPress={onPress} title={label}></Button>;
+
+const ModalSimulation = () => {
+  const { setIsOpen, setModalContent } = useModal();
+
+  const openCheckModal = () => {
+    setModalContent(<CheckModal />);
+    setIsOpen(true);
+  };
+
+  const openConfirmModal = () => {
+    setModalContent(<ConfirmModal />);
+    setIsOpen(true);
+  };
+
+  const openContentOnly = () => {
+    setModalContent(<ContentModal />);
+    setIsOpen(true);
+  };
+  return (
+    <View style={{ gap: 12, padding: 20 }}>
+      <TriggerButton label='Check Modal' onPress={openCheckModal} />
+      <TriggerButton label='Confirm Modal' onPress={openConfirmModal} />
+      <TriggerButton label='Content Modal' onPress={openContentOnly} />
+    </View>
+  );
+};
+
 storiesOf("Components/Modal", module)
   .addDecorator(withTheme)
+  .add("Modal Simulation", () => <ModalSimulation />)
   .add("Check Modal", () => <CheckModal />)
   .add("Confirm Modal", () => <ConfirmModal />)
   .add("Content Modal", () => <ContentModal />);

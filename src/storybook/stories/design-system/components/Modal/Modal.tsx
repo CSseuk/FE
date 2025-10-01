@@ -1,7 +1,7 @@
 import { useModal } from "@contexts/ModalProvider";
 import Button from "../Button/Button";
 import * as S from "./Modal.styles";
-import { ScrollView, ImageSourcePropType, Image } from "react-native";
+import type { ImageSourcePropType } from "react-native";
 import React from "react";
 
 export type ButtonType = "single" | "double";
@@ -48,8 +48,7 @@ export default function Modal({
   return (
     <S.ModalContainer>
       <S.ModalContent>
-        <ScrollView
-          style={{ width: "100%" }}
+        <S.ScrollContainer
           contentContainerStyle={{
             flexGrow: 1,
             justifyContent: "flex-start",
@@ -60,7 +59,7 @@ export default function Modal({
           {title && <S.Title>{title}</S.Title>}
           {/* children이 있으면 children, 아니면 content 렌더 */}
           {children ? children : <S.Content>{content}</S.Content>}
-        </ScrollView>
+        </S.ScrollContainer>
         {buttonType && (
           <S.ButtonContainer buttonType={buttonType}>
             {buttonType === "double" && (
@@ -79,8 +78,8 @@ export default function Modal({
           </S.ButtonContainer>
         )}
         {exitButton && (
-          <S.ExitButton>
-            <Image source={icon} style={{ width: 24, height: 24 }} />
+          <S.ExitButton onPress={handleClose}>
+            <S.Image source={icon} />
           </S.ExitButton>
         )}
       </S.ModalContent>
