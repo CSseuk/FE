@@ -1,7 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react-native";
 import { ThemeProvider } from "@emotion/react";
-
 import Modal from "./Modal";
 import theme from "@styles/theme";
 

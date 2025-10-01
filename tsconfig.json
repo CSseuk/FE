@@ -11,6 +11,7 @@
       "@stores/*": ["src/stores/*"],
       "@styles/*": ["src/styles/*"],
       "@contexts/*": ["src/contexts/*"],
+      "@constants/*": ["src/constants/*"],
       "@src/*": ["src/*"]
     }
   },
