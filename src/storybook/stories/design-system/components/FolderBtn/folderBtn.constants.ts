@@ -1,14 +1,10 @@
 import type { Subject } from './folderBtn.types';
 
-import { useTheme } from '@emotion/react';
-
-const theme = useTheme();
-
 export const SCREEN_PADDING = 16;
 export const GAP = 12;
 export const BASE_WIDTH = 180;
 
-export const DEFAULT_SUBJECTS: Subject[] = [
+export const DEFAULT_SUBJECTS = (colors: any): Subject[] => [
   {
     id: 1,
     title: '자료구조',
@@ -19,7 +15,7 @@ export const DEFAULT_SUBJECTS: Subject[] = [
       '시간복잡도와 공간 복잡도',
     ],
     image: require('@src/assets/images/folderBtn/folderBtn1.png'),
-    Colors: theme.colors.Semantic.dataStructure.dark,
+    Colors: colors.Semantic.dataStructure.dark,
     logo: require('@src/assets/images/iconJagu_24_Selected.png'),
   },
   {
@@ -32,7 +28,7 @@ export const DEFAULT_SUBJECTS: Subject[] = [
       '그래프 알고리즘',
     ],
     image: require('@src/assets/images/folderBtn/folderBtn2.png'),
-    Colors: theme.colors.Semantic.algorithm.dark,
+    Colors: colors.Semantic.algorithm.dark,
     logo: require('@src/assets/images/iconAlgorithm_24_Selected.png'),
   },
   {
@@ -45,7 +41,7 @@ export const DEFAULT_SUBJECTS: Subject[] = [
       '네트워크 보안',
     ],
     image: require('@src/assets/images/folderBtn/folderBtn3.png'),
-    Colors: theme.colors.Semantic.network.dark,
+    Colors: colors.Semantic.network.dark,
     logo: require('@src/assets/images/iconNetwork_24_Selected.png'),
   },
   {
@@ -61,7 +57,7 @@ export const DEFAULT_SUBJECTS: Subject[] = [
       '파일 시스템',
     ],
     image: require('@src/assets/images/folderBtn/folderBtn4.png'),
-    Colors: theme.colors.Semantic.operatingSystem.dark,
+    Colors: colors.Semantic.operatingSystem.dark,
     logo: require('@src/assets/images/iconUnchae_24_Selected.png'),
   },
   {
@@ -76,7 +72,7 @@ export const DEFAULT_SUBJECTS: Subject[] = [
       '메모리 계층',
     ],
     image: require('@src/assets/images/folderBtn/folderBtn5.png'),
-    Colors: theme.colors.Semantic.computerStructure.dark,
+    Colors: colors.Semantic.computerStructure.dark,
     logo: require('@src/assets/images/iconComputer_24_Selected.png'),
   },
   {
@@ -91,7 +87,7 @@ export const DEFAULT_SUBJECTS: Subject[] = [
       '데이터베이스 설계',
     ],
     image: require('@src/assets/images/folderBtn/folderBtn6.png'),
-    Colors: theme.colors.Semantic.database.dark,
+    Colors: colors.Semantic.database.dark,
     logo: require('@src/assets/images/iconDatabase_24_Selected.png'),
   },
 ];

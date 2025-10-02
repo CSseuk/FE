@@ -12,13 +12,19 @@ import {
 } from './folderBtn.constants';
 
 export default function FolderBtn({
-  subjects = DEFAULT_SUBJECTS,
+  subjects,
   selectedId = null,
   numColumns = 2,
   onSelect,
   onPressSubject,
 }: FolderBtnProps) {
   const theme = useTheme() as any;
+
+  const data = React.useMemo(
+    () => subjects ?? DEFAULT_SUBJECTS(theme.colors),
+    [subjects, theme.colors]
+  );
+
   const { width: winW } = useWindowDimensions();
   const [outerW, setOuterW] = useState(0);
 
@@ -42,7 +48,7 @@ export default function FolderBtn({
       <FlatList
         contentContainerStyle={{ paddingHorizontal: SCREEN_PADDING }}
         columnWrapperStyle={numColumns > 1 ? { columnGap: GAP } : undefined}
-        data={subjects}
+        data={data}
         keyExtractor={(it) => String(it.id)}
         numColumns={numColumns}
         showsVerticalScrollIndicator={false}
