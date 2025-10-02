@@ -1,6 +1,8 @@
 import './design-system/components/Button/Button.stories';
 import './design-system/components/TopNav/TopNav.stories';
 import './design-system/components/BotNav/BotNav.stories';
+import './design-system/components/FolderBtn/FolderBtn.stories';
+import './design-system/components/QBox/QBox.stories';
 import './design-system/components/Modal/Modal.stories';
 import './design-system/components/LabelFilter/LabelFilter.stories';
 import './design-system/components/InputLabel/InputLabel.stories';

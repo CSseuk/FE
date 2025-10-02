@@ -14,7 +14,7 @@ interface LabelChipProps {
   labelOverride?: string;
 }
 
-const Label = ({
+export const Label = ({
   active = false,
   kind,
   onPress,
@@ -59,10 +59,10 @@ export default function LabelFilter({
   return (
     <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
       <Label
-        kind='all'
+        kind="all"
         active={currentSelected === 'all'}
         onPress={() => handleToggle('all')}
-        labelOverride='전체'
+        labelOverride="전체"
       />
       {QUIZ_TYPES.map((type) => (
         <Label
