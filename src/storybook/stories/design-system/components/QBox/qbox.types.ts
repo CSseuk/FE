@@ -1,7 +1,9 @@
+import { QuizType } from '@src/types/quiz';
+
 export type SolveState = 'Solved' | 'Wrong' | 'NotSolved';
 
 export type QBoxProps = {
-  Section?: string;
+  Section?: QuizType;
   title?: string;
   description?: string;
   isSolved?: SolveState;
@@ -14,5 +16,5 @@ export type StatusMeta = {
   key: SolveState;
   color: string;
   text: string;
-  icon: any; // ImageSourcePropType
+  icon: any;
 };

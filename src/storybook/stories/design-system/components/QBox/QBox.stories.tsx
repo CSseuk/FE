@@ -5,6 +5,7 @@ import { ThemeProvider } from '@emotion/react';
 import { View, Alert } from 'react-native';
 import theme from '@styles/theme';
 import QBox from './QBox';
+import type { QuizType } from '@src/types/quiz';
 
 const withTheme = (Story: React.ComponentType) => (
   <ThemeProvider theme={theme}>
@@ -22,7 +23,7 @@ const withTheme = (Story: React.ComponentType) => (
 );
 
 const baseProps = {
-  Section: 'dataStructure',
+  Section: 'dataStructure' as QuizType,
   title: '문제1. 스택의 기본 연산',
   description:
     '스택에서 TOP, BOTTOM의 2개의 포인터가 있을 때, 한 개의 원소가 삽입되면 어떻게 되는가?',
@@ -42,7 +43,7 @@ storiesOf('Components/QBox', module)
         {...baseProps}
         isSolved="NotSolved"
         isBookmarked={bm ? 'true' : 'false'}
-        onToggleBookmark={(next) => setBm(next)}
+        onToggleBookmark={setBm}
       />
     );
   })
@@ -56,7 +57,7 @@ storiesOf('Components/QBox', module)
         {...baseProps}
         isSolved="Solved"
         isBookmarked={bm ? 'true' : 'false'}
-        onToggleBookmark={(next) => setBm(next)}
+        onToggleBookmark={setBm}
       />
     );
   })
@@ -70,7 +71,7 @@ storiesOf('Components/QBox', module)
         {...baseProps}
         isSolved="Wrong"
         isBookmarked={bm ? 'true' : 'false'}
-        onToggleBookmark={(next) => setBm(next)}
+        onToggleBookmark={setBm}
       />
     );
   })
@@ -84,7 +85,7 @@ storiesOf('Components/QBox', module)
         {...baseProps}
         isSolved="NotSolved"
         isBookmarked={bm ? 'true' : 'false'}
-        onToggleBookmark={(next) => setBm(next)}
+        onToggleBookmark={setBm}
       />
     );
   })
@@ -104,22 +105,52 @@ storiesOf('Components/QBox', module)
         }
         isSolved="Solved"
         isBookmarked={bm ? 'true' : 'false'}
+        onToggleBookmark={setBm}
       />
     );
   })
 
   // 리스트로 한 번에 비교
-  .add('All variants (list)', () => (
-    <View style={{ gap: 12 }}>
-      <QBox {...baseProps} isSolved="NotSolved" isBookmarked="false" />
-      <QBox {...baseProps} isSolved="Solved" isBookmarked="false" />
-      <QBox {...baseProps} isSolved="Wrong" isBookmarked="false" />
-      <QBox {...baseProps} isSolved="NotSolved" isBookmarked="true" />
-      <QBox
-        {...baseProps}
-        Section={undefined}
-        isSolved="Solved"
-        isBookmarked="true"
-      />
-    </View>
-  ));
+  .add('All variants (list)', () => {
+    const [bm1, setBm1] = React.useState(false);
+    const [bm2, setBm2] = React.useState(false);
+    const [bm3, setBm3] = React.useState(false);
+    const [bm4, setBm4] = React.useState(true);
+    const [bm5, setBm5] = React.useState(false);
+
+    return (
+      <View style={{ gap: 12 }}>
+        <QBox
+          {...baseProps}
+          isSolved="NotSolved"
+          isBookmarked={bm1 ? 'true' : 'false'}
+          onToggleBookmark={setBm1}
+        />
+        <QBox
+          {...baseProps}
+          isSolved="Solved"
+          isBookmarked={bm2 ? 'true' : 'false'}
+          onToggleBookmark={setBm2}
+        />
+        <QBox
+          {...baseProps}
+          isSolved="Wrong"
+          isBookmarked={bm3 ? 'true' : 'false'}
+          onToggleBookmark={setBm3}
+        />
+        <QBox
+          {...baseProps}
+          isSolved="NotSolved"
+          isBookmarked={bm4 ? 'true' : 'false'}
+          onToggleBookmark={setBm4}
+        />
+        <QBox
+          {...baseProps}
+          Section={undefined}
+          isSolved="Solved"
+          isBookmarked={bm5 ? 'true' : 'false'}
+          onToggleBookmark={setBm5}
+        />
+      </View>
+    );
+  });

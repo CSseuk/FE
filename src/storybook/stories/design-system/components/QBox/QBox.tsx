@@ -1,5 +1,5 @@
-import React, { useMemo, useState, useEffect, useCallback } from 'react';
-import { View, Pressable, Image } from 'react-native';
+import React, { useMemo, useCallback } from 'react';
+import { Pressable, Image } from 'react-native';
 import { useTheme } from '@emotion/react';
 import * as S from './QBox.styles';
 import type { QBoxProps, StatusMeta } from './qbox.types';
@@ -19,25 +19,13 @@ export default function QBox({
 }: QBoxProps) {
   const theme = useTheme() as any;
 
-  // 내부 상태 (비제어 지원)
-  const [innerMarked, setInnerMarked] = useState(isBookmarked === 'true');
-  useEffect(() => {
-    if (typeof isBookmarked !== 'undefined') {
-      setInnerMarked(isBookmarked === 'true');
-    }
-  }, [isBookmarked]);
+  const bookmarked = isBookmarked === 'true';
 
   const toggleBookmark = useCallback(() => {
-    if (typeof isBookmarked !== 'undefined') {
-      onToggleBookmark?.(isBookmarked === 'false');
-    } else {
-      setInnerMarked((prev) => {
-        const next = !prev;
-        onToggleBookmark?.(next);
-        return next;
-      });
+    if (onToggleBookmark) {
+      onToggleBookmark(!bookmarked);
     }
-  }, [isBookmarked, onToggleBookmark]);
+  }, [bookmarked, onToggleBookmark]);
 
   // 상태 라벨 & 색상
   const status: StatusMeta = useMemo(() => {
@@ -64,22 +52,22 @@ export default function QBox({
   }, [isSolved, theme.colors]);
 
   return (
-    <Pressable
-      onPress={onPress}
-      style={{ marginBottom: 14 }}
-      accessibilityRole="button"
-    >
+    <Pressable onPress={onPress} style={{ marginBottom: 14 }}>
       <S.Card>
         {/* 우상단 북마크 */}
+
         <S.BookmarkWrap>
           <Pressable
-            onPress={toggleBookmark}
+            onPress={(e: any) => {
+              if (e?.stopPropagation) e.stopPropagation();
+              toggleBookmark();
+            }}
             hitSlop={BOOKMARK_HITSLOP}
             accessibilityRole="button"
-            accessibilityLabel={innerMarked ? '북마크 해제' : '북마크 추가'}
+            accessibilityLabel={bookmarked ? '북마크 해제' : '북마크 추가'}
           >
             <Image
-              source={innerMarked ? ICONS.bookmarkOn : ICONS.bookmarkOff}
+              source={bookmarked ? ICONS.bookmarkOn : ICONS.bookmarkOff}
               style={{ width: 36, height: 36 }}
             />
           </Pressable>
