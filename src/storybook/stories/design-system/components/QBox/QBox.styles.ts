@@ -17,6 +17,7 @@ export const BookmarkWrap = styled.View({
   top: 10,
   flexDirection: 'row',
   alignItems: 'center',
+  zIndex: 1,
 });
 
 export const Title = styled.Text(({ theme }: any) => ({
