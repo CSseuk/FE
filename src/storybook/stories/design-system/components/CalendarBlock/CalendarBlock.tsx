@@ -5,14 +5,14 @@ import * as S from './CalendarBlock.styles';
 type CalendarBlockProps = {
   label: string | number;
   count?: number;
-  currentDate?: boolean;
+  isToday?: boolean;
   currentMonth?: boolean;
 };
 
 export default function CalendarBlock({
   label,
   count = 0,
-  currentDate = false,
+  isToday = false,
   currentMonth = true,
 }: CalendarBlockProps) {
   // count 구간별 색상 매핑
@@ -34,7 +34,7 @@ export default function CalendarBlock({
   };
 
   const getTextColor = () => {
-    if (currentDate) return theme.colors.Neutral.N0;
+    if (isToday) return theme.colors.Neutral.N0;
     if (currentMonth) return theme.colors.Neutral.N600;
     return theme.colors.Neutral.N50;
   };
@@ -45,7 +45,7 @@ export default function CalendarBlock({
     <S.Container>
       <S.Square style={{ backgroundColor }} />
       <S.LabelWrapper>
-        {currentDate && <S.ActiveCircle />}
+        {isToday && <S.ActiveCircle />}
         <S.Label style={{ color: textColor }}>{label}</S.Label>
       </S.LabelWrapper>
     </S.Container>

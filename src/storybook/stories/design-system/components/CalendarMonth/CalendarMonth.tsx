@@ -39,7 +39,7 @@ export default function CalendarMonth({
                 <CalendarBlock
                   label={cell.label}
                   count={cell.count}
-                  currentDate={cell.isToday}
+                  isToday={cell.isToday}
                   currentMonth={cell.currentMonth}
                 />
               </S.CellWrap>
