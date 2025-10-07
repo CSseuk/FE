@@ -13,8 +13,14 @@ export function useCalendarCells(
   const daysInPrev = getDaysInMonth(year, month - 1);
   const firstOffset = new Date(year, month, 1).getDay();
 
+  // 이번 달이 실제로 차지하는 주 수 계산
+  const total = useMemo(() => {
+    const needed = firstOffset + daysInThis; // 이전달 앞칸 + 이번달 날짜
+    const rows = Math.ceil(needed / 7); // 필요한 주 수
+    return rows * 7; // 전체 cells 수
+  }, [firstOffset, daysInThis]);
+
   const cells = useMemo(() => {
-    const total = 35;
     const arr: {
       label: number;
       dateISO: string;
@@ -70,11 +76,14 @@ export function useCalendarCells(
     }
 
     return arr;
-  }, [year, month, counts]);
+  }, [year, month, counts, total, firstOffset, daysInThis, daysInPrev]);
 
   const weeks = useMemo(
-    () => Array.from({ length: 6 }, (_, w) => cells.slice(w * 7, w * 7 + 7)),
-    [cells]
+    () =>
+      Array.from({ length: total / 7 }, (_, w) =>
+        cells.slice(w * 7, w * 7 + 7)
+      ),
+    [cells, total]
   );
 
   return weeks;
