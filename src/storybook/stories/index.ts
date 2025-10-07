@@ -6,3 +6,4 @@ import './design-system/components/QBox/QBox.stories';
 import './design-system/components/Modal/Modal.stories';
 import './design-system/components/LabelFilter/LabelFilter.stories';
 import './design-system/components/InputLabel/InputLabel.stories';
+import './design-system/components/CalendarMonth/CalendarMonth.stories';

@@ -8,7 +8,7 @@ type FeatherName = React.ComponentProps<typeof Feather>['name'];
 
 type size = 'S' | 'M' | 'L';
 
-type Props = {
+type InputLabelProps = {
   size?: size;
   disabled?: boolean;
   label: string;
@@ -34,7 +34,7 @@ export default function InputLabel({
   rightIconNode,
   value,
   onChange,
-}: Props) {
+}: InputLabelProps) {
   const sizeMap: Record<
     size,
     {
