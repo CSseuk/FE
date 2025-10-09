@@ -14,6 +14,11 @@ module.exports = function (api) {
             '@screens': './src/screens',
             '@stores': './src/stores',
             '@styles': './src/styles',
+            '@assets': './src/assets',
+            '@contexts': './src/contexts',
+            '@constants': './src/constants',
+            '@design-system':
+              './src/storybook/stories/design-system/components',
           },
           extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
         },

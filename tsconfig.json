@@ -3,6 +3,9 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["src/assets/*"],
@@ -12,6 +15,7 @@
       "@styles/*": ["src/styles/*"],
       "@contexts/*": ["src/contexts/*"],
       "@constants/*": ["src/constants/*"],
+      "@design-system/*": ["src/storybook/stories/design-system/components/*"],
       "@src/*": ["src/*"]
     }
   },
