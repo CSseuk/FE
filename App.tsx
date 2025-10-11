@@ -1,11 +1,11 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from '@src/navigation/RootNavigator';
 import { ThemeProvider } from '@emotion/react';
 import Toast from 'react-native-toast-message';
 import theme from '@styles/theme';
 import { useFonts } from 'expo-font';
 import { View, ActivityIndicator } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const SHOW_SB = process.env.EXPO_PUBLIC_STORYBOOK === '1';
 const StorybookUIRoot = SHOW_SB ? require('./.storybook').default : null;
@@ -41,10 +41,10 @@ export default function App() {
   // 앱 UI
   return (
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
+      <SafeAreaProvider>
         <RootNavigator />
         <Toast />
-      </NavigationContainer>
+      </SafeAreaProvider>
     </ThemeProvider>
   );
 }
