@@ -1,3 +1,5 @@
+import type { QuizType } from '@src/types/quiz';
+
 export type RootStackParamList = {
   Splash: undefined;
   Auth: undefined;
@@ -19,8 +21,9 @@ export type TabParamList = {
 };
 
 export type HomeStackParamList = {
-  HomeMain: undefined; // 문제풀기 메인
-  Quiz: { quizId?: string } | undefined; // 문제풀기 내부 화면
+  HomeMain: undefined;
+  QuizList: { quizType?: QuizType } | undefined;
+  QuizSolve: { quizId: number; quizType: QuizType } | undefined;
 };
 
 export type BookmarkStackParamList = {

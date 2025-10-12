@@ -5,3 +5,5 @@ export { default as LoginScreen } from './LoginScreen';
 export { default as SignupScreen } from './SignupScreen';
 export { default as BookmarkScreen } from './BookmarkScreen';
 export { default as MypageScreen } from './MypageScreen';
+export { default as QuizListScreen } from './QuizListScreen';
+export { default as QuizSolveScreen } from './QuizSolveScreen';
