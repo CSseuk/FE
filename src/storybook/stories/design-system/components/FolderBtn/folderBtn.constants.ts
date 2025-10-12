@@ -8,6 +8,7 @@ export const DEFAULT_SUBJECTS = (colors: any): Subject[] => [
   {
     id: 1,
     title: '자료구조',
+    type: 'dataStructure',
     subtitle: [
       '선형 자료구조',
       '비선형 자료구조',
@@ -21,6 +22,7 @@ export const DEFAULT_SUBJECTS = (colors: any): Subject[] => [
   {
     id: 2,
     title: '알고리즘',
+    type: 'algorithm',
     subtitle: [
       '정렬 알고리즘',
       '탐색 알고리즘',
@@ -34,6 +36,7 @@ export const DEFAULT_SUBJECTS = (colors: any): Subject[] => [
   {
     id: 3,
     title: '네트워크',
+    type: 'network',
     subtitle: [
       '네트워크 기초',
       'OSI 7계층과 TCP/IP 모델',
@@ -47,6 +50,7 @@ export const DEFAULT_SUBJECTS = (colors: any): Subject[] => [
   {
     id: 4,
     title: '운영체제',
+    type: 'operatingSystem',
     subtitle: [
       '운영체제 개요',
       '프로세스와 스레드',
@@ -63,6 +67,7 @@ export const DEFAULT_SUBJECTS = (colors: any): Subject[] => [
   {
     id: 5,
     title: '컴퓨터구조',
+    type: 'computerStructure',
     subtitle: [
       '컴퓨터의 기본 구성',
       '데이터 표현',
@@ -78,6 +83,7 @@ export const DEFAULT_SUBJECTS = (colors: any): Subject[] => [
   {
     id: 6,
     title: '데이터베이스',
+    type: 'database',
     subtitle: [
       '데이터베이스 개요',
       '관계형 데이터베이스',
