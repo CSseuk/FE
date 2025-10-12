@@ -11,6 +11,7 @@ import { Label } from '../LabelFilter/LabelFilter';
 export default function QBox({
   Section,
   title,
+  isLabeled = true,
   description,
   isSolved = SOLVE_STATES.NOT_SOLVED,
   isBookmarked,
@@ -52,7 +53,7 @@ export default function QBox({
   }, [isSolved, theme.colors]);
 
   return (
-    <Pressable onPress={onPress} style={{ marginBottom: 14 }}>
+    <Pressable onPress={onPress}>
       <S.Card>
         {/* 우상단 북마크 */}
 
@@ -74,7 +75,7 @@ export default function QBox({
         </S.BookmarkWrap>
 
         {/* 상단 라벨 */}
-        {Section ? <Label kind={Section as any} active /> : null}
+        {Section && isLabeled ? <Label kind={Section as any} active /> : null}
 
         {/* 제목 */}
         {!!title && <S.Title numberOfLines={2}>{title}</S.Title>}
