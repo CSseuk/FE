@@ -7,6 +7,7 @@ export type QBoxProps = {
   title?: string;
   description?: string;
   isSolved?: SolveState;
+  isLabeled?: boolean;
   isBookmarked?: 'true' | 'false';
   onPress?: () => void;
   onToggleBookmark?: (next: boolean) => void;

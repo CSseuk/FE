@@ -9,7 +9,7 @@ export default function QuizSolveScreen() {
         alignItems: 'center',
       }}
     >
-      <Text>퀴즈 목록</Text>
+      <Text>퀴즈 풀기</Text>
     </View>
   );
 }

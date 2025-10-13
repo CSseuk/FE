@@ -106,7 +106,7 @@ function HomeStackNavigator() {
       <HomeStack.Screen
         name="HomeMain"
         component={HomeScreen}
-        options={{ title: '문제풀기' }}
+        options={{ title: '문제 풀기' }}
       />
       <HomeStack.Screen
         name="QuizList"
@@ -116,7 +116,8 @@ function HomeStackNavigator() {
           header: () => (
             <TopNav
               Logo={false}
-              title="문제 목록"
+              title="문제풀기"
+              leftIconName="chevron-left"
               onLeftPress={() =>
                 safeGoBack(navigation, () => navigation.navigate('HomeMain'))
               }
@@ -134,7 +135,8 @@ function HomeStackNavigator() {
             header: () => (
               <TopNav
                 Logo={false}
-                title="문제 풀기"
+                title="목록으로 돌아가기"
+                leftIconName="chevron-left"
                 onLeftPress={() =>
                   safeGoBack(navigation, () =>
                     navigation.navigate('QuizList', { quizType })

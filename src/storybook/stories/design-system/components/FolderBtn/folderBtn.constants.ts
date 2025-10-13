@@ -1,6 +1,6 @@
 import type { Subject } from './folderBtn.types';
 
-export const SCREEN_PADDING = 16;
+export const SCREEN_PADDING = 24;
 export const GAP = 12;
 export const BASE_WIDTH = 180;
 

@@ -8,12 +8,13 @@ export const Wrapper = styled.View(({ theme }) => ({
 }));
 
 export const Container = styled.View(() => ({
+  flex: 1,
   width: '100%',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
   gap: 24,
-  paddingHorizontal: 8,
+  paddingHorizontal: 24,
 }));
 
 export const Title = styled.Text(({ theme }) => ({
