@@ -27,4 +27,5 @@ export const TextInputBox = styled.TextInput`
   flex: 1;
   color: ${({ theme }) => theme.colors.Neutral.N600};
   margin-left: 4;
+  margin-right: 4;
 `;

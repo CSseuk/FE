@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import theme from '@styles/theme';
 import { Feather } from '@expo/vector-icons';
 import * as S from './InputLabel.styles';
-import { View, Image, TextInput } from 'react-native';
+import { View } from 'react-native';
 
 type FeatherName = React.ComponentProps<typeof Feather>['name'];
 
@@ -19,7 +19,8 @@ type InputLabelProps = {
   leftIconNode?: React.ReactNode;
   rightIconNode?: React.ReactNode;
   value: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
+  readOnly?: boolean;
 };
 
 export default function InputLabel({
@@ -34,6 +35,7 @@ export default function InputLabel({
   rightIconNode,
   value,
   onChange,
+  readOnly,
 }: InputLabelProps) {
   const sizeMap: Record<
     size,
@@ -109,7 +111,7 @@ export default function InputLabel({
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <S.InputLabelContainer style={{ opacity: disabled ? 0.5 : 1 }}>
+    <S.InputLabelContainer style={{ opacity: disabled && !readOnly ? 0.5 : 1 }}>
       <S.Label>{label}</S.Label>
       <S.InputWrapper
         style={{
@@ -130,10 +132,16 @@ export default function InputLabel({
       >
         {buildLeftIcon()}
         <S.TextInputBox
-          style={font}
+          style={[
+            font,
+            readOnly && {
+              color: theme.colors.Blue.B200,
+              borderColor: theme.colors.Neutral.N60,
+            },
+          ]}
           placeholder={placeholder}
           placeholderTextColor={theme.colors.Neutral.N100}
-          editable={!disabled}
+          editable={!disabled && !readOnly}
           value={value}
           onChangeText={onChange}
           onFocus={() => {
