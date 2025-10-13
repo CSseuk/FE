@@ -1,6 +1,14 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {
+  NavigationContainer,
+  getFocusedRouteNameFromRoute,
+  type RouteProp,
+} from '@react-navigation/native';
+import {
+  createBottomTabNavigator,
+  type BottomTabNavigationOptions,
+} from '@react-navigation/bottom-tabs';
+import type { ViewStyle } from 'react-native';
 import { safeGoBack } from '@src/utils/safeGoBack';
 import { TopNav, BotNav } from '@design-system/index';
 import {
@@ -25,6 +33,18 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 const HomeStack = createNativeStackNavigator<HomeStackParamList>();
 const Tab = createBottomTabNavigator<TabParamList>();
+
+const HIDE_TABBAR_ON = ['QuizSolve'] as const;
+
+function tabBarStyleByRoute(
+  route: RouteProp<TabParamList, keyof TabParamList>
+): ViewStyle | undefined {
+  const name = getFocusedRouteNameFromRoute(route) ?? 'HomeMain';
+  if (HIDE_TABBAR_ON.includes(name as (typeof HIDE_TABBAR_ON)[number])) {
+    return { display: 'none' };
+  }
+  return { display: 'flex' };
+}
 
 export default function RootNavigator() {
   return (
@@ -74,7 +94,11 @@ function TabNavigator() {
       <Tab.Screen
         name="Home"
         component={HomeStackNavigator}
-        options={{ headerShown: false }}
+        options={({ route }): BottomTabNavigationOptions => ({
+          headerShown: false,
+          tabBarStyle: tabBarStyleByRoute(route),
+          tabBarHideOnKeyboard: true,
+        })}
       />
       <Tab.Screen
         name="Bookmark"
