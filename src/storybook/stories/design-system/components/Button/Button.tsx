@@ -38,6 +38,7 @@ type Props = {
 
   loading?: boolean;
   style?: StyleProp<ViewStyle>;
+  visualDisabled?: boolean;
 };
 
 export default function Button({
@@ -49,10 +50,11 @@ export default function Button({
   instance,
   leftIconName,
   rightIconName,
-  leftIconNode,
+  leftIconNode = '',
   rightIconNode,
   loading = false,
   style,
+  visualDisabled,
 }: Props) {
   const theme = useTheme();
 
@@ -73,7 +75,7 @@ export default function Button({
       font: theme.typography.Button_Small,
       icon: 16,
       gap: 4,
-      radius: 12,
+      radius: 6,
     },
     M: {
       paddingV: 14,
@@ -89,7 +91,7 @@ export default function Button({
       font: theme.typography.Button_Large,
       icon: 24,
       gap: 4,
-      radius: 6,
+      radius: 12,
     },
   };
 
@@ -167,6 +169,8 @@ export default function Button({
         const isDisabled = status === 'Disabled' || loading;
         const visual: Status = isDisabled
           ? 'Disabled'
+          : visualDisabled
+          ? 'Disabled'
           : pressed
           ? 'Pressed'
           : 'Default';
@@ -192,6 +196,8 @@ export default function Button({
       {({ pressed }) => {
         const isDisabled = status === 'Disabled' || loading;
         const visual: Status = isDisabled
+          ? 'Disabled'
+          : visualDisabled
           ? 'Disabled'
           : pressed
           ? 'Pressed'

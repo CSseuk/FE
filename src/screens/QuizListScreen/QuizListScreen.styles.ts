@@ -2,6 +2,7 @@ import styled from '@emotion/native';
 
 export const Wrapper = styled.View(({ theme }) => ({
   flex: 1,
+  backgroundColor: theme.colors.Neutral.N0,
 }));
 
 export const Container2 = styled.View(({ theme }) => ({

@@ -1,8 +1,16 @@
-import React from 'react';
-import { Pressable, Image, Text, ImageSourcePropType } from 'react-native';
+import { useMemo } from 'react';
+import {
+  Pressable,
+  Image,
+  Text,
+  ImageSourcePropType,
+  ViewStyle,
+} from 'react-native';
 import { useTheme } from '@emotion/react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 
 type NavItem = {
   id: number;
@@ -46,7 +54,7 @@ const navItems: NavItem[] = [
 type BotNavProps = {
   selected?: number;
   onSelect?: (id: number) => void;
-  // React Navigation props (optional)
+
   state?: {
     routes: Array<{ name: string; key: string }>;
     index: number;
@@ -55,6 +63,16 @@ type BotNavProps = {
     navigate: (name: string) => void;
     emit: (event: any) => { defaultPrevented: boolean };
   };
+  descriptors?: Record<
+    string,
+    {
+      options?: {
+        tabBarStyle?: ViewStyle | (ViewStyle | undefined)[];
+        tabBarAccessibilityLabel?: string;
+        title?: string;
+      };
+    }
+  >;
 };
 
 export default function BotNav({
@@ -62,6 +80,7 @@ export default function BotNav({
   onSelect,
   state,
   navigation,
+  descriptors,
 }: BotNavProps) {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
@@ -74,27 +93,45 @@ export default function BotNav({
       ) + 1
     : selected || 1;
 
+  const isRN = !!state && !!navigation && !!descriptors;
+
+  const focusedStyle: ViewStyle | undefined = useMemo(() => {
+    if (!isRN) return undefined;
+    const key = state!.routes[state!.index].key;
+    const opt = descriptors![key]?.options?.tabBarStyle;
+    if (!opt) return undefined;
+
+    // tabBarStyle이 배열일 수도 있어서 플래튼
+    if (Array.isArray(opt)) return Object.assign({}, ...opt);
+    return opt as ViewStyle;
+  }, [isRN, state, descriptors]);
+
+  if (focusedStyle?.display === 'none') return null;
+
   return (
     <SafeAreaView
       edges={['bottom']}
-      style={{
-        backgroundColor: theme.colors.Neutral.N0,
-        width: '100%',
-        height: 84 + insets.bottom,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingTop: 4,
-        paddingBottom: 8,
-        paddingHorizontal: 24,
-        borderTopRightRadius: 16,
-        borderTopLeftRadius: 16,
-        shadowColor: theme.colors.Black,
-        shadowOffset: { width: 4, height: -2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 5,
-        elevation: 2,
-      }}
+      style={[
+        {
+          backgroundColor: theme.colors.Neutral.N0,
+          width: '100%',
+          height: 84 + insets.bottom,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          paddingTop: 4,
+          paddingBottom: 8,
+          paddingHorizontal: 24,
+          borderTopRightRadius: 16,
+          borderTopLeftRadius: 16,
+          shadowColor: theme.colors.Black,
+          shadowOffset: { width: 4, height: -2 },
+          shadowOpacity: 0.1,
+          shadowRadius: 5,
+          elevation: 2,
+        },
+        focusedStyle,
+      ]}
     >
       {navItems.map((item) => {
         const isFocused = isReactNavigation
@@ -133,7 +170,7 @@ export default function BotNav({
             <Image
               source={isFocused ? item.iconActive : item.icon}
               style={{ width: 24, height: 24 }}
-              resizeMode='contain'
+              resizeMode="contain"
             />
             <Text
               style={[
