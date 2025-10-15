@@ -2,7 +2,6 @@ import styled from '@emotion/native';
 
 export const Container = styled.View({
   flex: 1,
-  alignSelf: 'stretch', // 좌우 너비 꽉 차게
 });
 
 export const CardPressable = styled.Pressable<{ $width?: number }>((props) => ({
