@@ -27,7 +27,7 @@ export function useToc(blocks: Block[]) {
 
   const handleTocPress = (id: string) => {
     const y = anchorY[id] ?? 0;
-    scrollRef.current?.scrollTo({ y: Math.max(0, y - 8), animated: true });
+    scrollRef.current?.scrollTo({ y: Math.max(0, y), animated: true });
     setActiveId(id);
   };
 
