@@ -16,11 +16,13 @@ import {
   TabParamList,
   AuthStackParamList,
   HomeStackParamList,
+  DocsStackParamList,
 } from './navigation.types';
 import {
   HomeScreen,
   BookmarkScreen,
   DocsScreen,
+  DocsDetailScreen,
   MypageScreen,
   SplashScreen,
   LoginScreen,
@@ -32,6 +34,7 @@ import {
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 const HomeStack = createNativeStackNavigator<HomeStackParamList>();
+const DocsStack = createNativeStackNavigator<DocsStackParamList>();
 const Tab = createBottomTabNavigator<TabParamList>();
 
 const HIDE_TABBAR_ON = ['QuizSolve'] as const;
@@ -107,8 +110,8 @@ function TabNavigator() {
       />
       <Tab.Screen
         name="Docs"
-        component={DocsScreen}
-        options={{ title: '개념설명' }}
+        component={DocsStackNavigator}
+        options={{ headerShown: false }}
       />
       <Tab.Screen
         name="Mypage"
@@ -172,5 +175,34 @@ function HomeStackNavigator() {
         }}
       />
     </HomeStack.Navigator>
+  );
+}
+
+function DocsStackNavigator() {
+  return (
+    <DocsStack.Navigator
+      screenOptions={{
+        headerShown: true,
+        header: () => <TopNav Logo={true} title="" />,
+      }}
+    >
+      <DocsStack.Screen name="DocsMain" component={DocsScreen} />
+      <DocsStack.Screen
+        name="DocsDetail"
+        component={DocsDetailScreen}
+        options={({ navigation }) => ({
+          header: () => (
+            <TopNav
+              Logo={false}
+              title="목록으로 돌아가기"
+              leftIconName="chevron-left"
+              onLeftPress={() =>
+                safeGoBack(navigation, () => navigation.navigate('DocsMain'))
+              }
+            />
+          ),
+        })}
+      />
+    </DocsStack.Navigator>
   );
 }

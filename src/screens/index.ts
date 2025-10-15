@@ -7,3 +7,4 @@ export { default as BookmarkScreen } from './BookmarkScreen';
 export { default as MypageScreen } from './MypageScreen';
 export { default as QuizListScreen } from './QuizListScreen';
 export { default as QuizSolveScreen } from './QuizSolveScreen';
+export { default as DocsDetailScreen } from './DocsDetailScreen';
