@@ -1,4 +1,4 @@
-import type { Block, InlineToken } from '../MarkdownRenderer.types';
+import type { Block, InlineToken } from '../types/MarkdownRenderer.types';
 import slugify from './utils';
 import parseInlines from './parseInlines';
 

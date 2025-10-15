@@ -1,4 +1,4 @@
-import type { Block } from '../MarkdownRenderer.types';
+import type { Block } from '../types/MarkdownRenderer.types';
 import { LayoutChangeEvent } from 'react-native';
 import { View } from 'react-native';
 import * as S from '../MarkdownRenderer.styles';

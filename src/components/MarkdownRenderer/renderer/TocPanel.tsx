@@ -1,7 +1,7 @@
 import React from 'react';
 import { Animated } from 'react-native';
-import * as S from './MarkdownRenderer.styles';
-import type { Block } from './MarkdownRenderer.types';
+import * as S from '../MarkdownRenderer.styles';
+import type { Block } from '../types/MarkdownRenderer.types';
 
 type HeadingBlock = Extract<Block, { type: 'heading' }>;
 

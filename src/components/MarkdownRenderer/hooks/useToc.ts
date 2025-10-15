@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from 'react';
 import type { ScrollView } from 'react-native';
-import type { Block } from '../MarkdownRenderer.types';
+import type { Block } from '../types/MarkdownRenderer.types';
 
 /**
  * 문서에서 heading으로 목차를 만들고,

@@ -4,7 +4,7 @@ import renderBlock from './renderer/renderBlock';
 import * as S from './MarkdownRenderer.styles';
 import parseBlocks from './parser/parseBlocks';
 import { useSlidingPanel } from './hooks/useSlidingPanel';
-import TocPanel from './TocPanel';
+import TocPanel from './renderer/TocPanel';
 import { useToc } from './hooks/useToc';
 
 type MarkdownRendererProps = {

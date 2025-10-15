@@ -1,4 +1,4 @@
-import type { InlineToken } from '../MarkdownRenderer.types';
+import type { InlineToken } from '../types/MarkdownRenderer.types';
 
 /**
  * 인라인 파싱 함수

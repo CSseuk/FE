@@ -1,4 +1,4 @@
-import type { InlineToken } from '../MarkdownRenderer.types';
+import type { InlineToken } from '../types/MarkdownRenderer.types';
 import { Text } from 'react-native';
 import * as S from '../MarkdownRenderer.styles';
 
