@@ -5,7 +5,7 @@ import { ThemeProvider } from '@emotion/react';
 import { View, Alert } from 'react-native';
 import theme from '@styles/theme';
 import FolderBtn from './FolderBtn';
-import type { Subject } from './folderBtn.types';
+import type { Subject } from '@src/types/subject';
 
 const withTheme = (Story: React.ComponentType) => (
   <ThemeProvider theme={theme}>
