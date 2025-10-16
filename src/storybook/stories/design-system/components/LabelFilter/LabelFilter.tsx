@@ -5,7 +5,7 @@ import type { QuizType } from '@src/types/quiz';
 import { QUIZ_LABELS, QUIZ_TYPES } from '@constants/quiz';
 import { Pressable, View } from 'react-native';
 
-type ChipKind = QuizType | 'all';
+export type ChipKind = QuizType | 'all';
 
 interface LabelChipProps {
   kind: ChipKind;
