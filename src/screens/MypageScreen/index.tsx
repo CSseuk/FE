@@ -1,15 +1,13 @@
-import { View, Text } from 'react-native';
+import * as S from './MypageScreen.styles';
+import { UserMenuSection, CalendarSection } from './components';
+import { MOCK_USER, MOCK_COUNTS } from './mocks/MypageScreen.mocks';
 
 export default function MypageScreen() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <Text>마이페이지</Text>
-    </View>
+    <S.Wrapper>
+      <CalendarSection data={MOCK_COUNTS} />
+      <S.Spacing />
+      <UserMenuSection username={MOCK_USER.username} onEditProfile={() => {}} />
+    </S.Wrapper>
   );
 }
