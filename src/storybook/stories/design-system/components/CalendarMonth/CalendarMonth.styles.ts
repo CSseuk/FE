@@ -1,27 +1,21 @@
 import styled from '@emotion/native';
 
-/** 블록 한 칸의 가로 기준(헤더 셀 폭과 맞춤) */
-export const CELL = 30;
-/** 칸 사이 간격 */
-export const GAP = 14;
-
 export const Container = styled.View({
-  paddingHorizontal: 12,
-  paddingTop: 8,
-  paddingBottom: 4,
+  padding: 12,
   alignItems: 'center',
+  width: '100%',
 });
 
 export const HeaderRow = styled.View({
   flexDirection: 'row',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   alignItems: 'center',
   marginBottom: 10,
-  gap: GAP,
+  width: '100%',
 });
 
 export const HeaderCell = styled.View({
-  width: CELL,
+  flex: 1,
   alignItems: 'center',
   justifyContent: 'center',
 });
@@ -33,17 +27,18 @@ export const HeaderText = styled.Text(({ theme }) => ({
 
 export const Grid = styled.View({
   gap: 6,
+  width: '100%',
 });
 
 export const WeekRow = styled.View({
   flexDirection: 'row',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   alignItems: 'center',
-  gap: GAP,
+  width: '100%',
 });
 
 export const CellWrap = styled.View({
-  width: CELL,
+  flex: 1,
   alignItems: 'center',
   justifyContent: 'center',
 });
