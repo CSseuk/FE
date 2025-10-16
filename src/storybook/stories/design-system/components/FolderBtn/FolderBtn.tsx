@@ -3,7 +3,7 @@ import { FlatList, useWindowDimensions } from 'react-native';
 import { useTheme } from '@emotion/react';
 
 import * as S from './FolderBtn.styled';
-import type { FolderBtnProps, Subject } from './folderBtn.types';
+import type { FolderBtnProps } from './folderBtn.types';
 import {
   DEFAULT_SUBJECTS,
   SCREEN_PADDING,

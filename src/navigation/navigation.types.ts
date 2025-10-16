@@ -5,7 +5,6 @@ export type RootStackParamList = {
   Auth: undefined;
   Tabs: undefined;
   Detail: { id: number };
-  Docs: undefined;
 };
 
 export type AuthStackParamList = {
@@ -32,6 +31,7 @@ export type BookmarkStackParamList = {
 
 export type DocsStackParamList = {
   DocsMain: undefined;
+  DocsDetail: { quizType: QuizType; title: string } | undefined;
 };
 
 export type MypageStackParamList = {

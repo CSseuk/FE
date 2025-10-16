@@ -51,7 +51,10 @@ export default function TopNav({
 
   if (rightIconName && !leftIconName) {
     return (
-      <SafeAreaView edges={['top', 'left', 'right']}>
+      <SafeAreaView
+        edges={['top', 'left', 'right']}
+        style={{ backgroundColor: theme.colors.Neutral.N0 }}
+      >
         <Pressable onPress={onRightPress}>
           <View
             style={{
@@ -83,7 +86,10 @@ export default function TopNav({
 
   if (leftIconName && !rightIconName) {
     return (
-      <SafeAreaView edges={['top', 'left', 'right']}>
+      <SafeAreaView
+        edges={['top', 'left', 'right']}
+        style={{ backgroundColor: theme.colors.Neutral.N0 }}
+      >
         <Pressable onPress={onLeftPress}>
           <View
             style={{
