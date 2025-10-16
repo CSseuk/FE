@@ -82,7 +82,7 @@ export default function renderBlock(
           <S.TableHeader>
             {b.header.map((h, i) => (
               <S.TableHeaderCell key={i}>
-                <S.TableHeaderText>{h}</S.TableHeaderText>
+                <S.TableText>{h}</S.TableText>
               </S.TableHeaderCell>
             ))}
           </S.TableHeader>
@@ -90,7 +90,7 @@ export default function renderBlock(
             <S.TableRow key={r}>
               {row.map((cell, c) => (
                 <S.TableCell key={c}>
-                  <S.TableCellText>{cell}</S.TableCellText>
+                  <S.TableText>{cell}</S.TableText>
                 </S.TableCell>
               ))}
             </S.TableRow>

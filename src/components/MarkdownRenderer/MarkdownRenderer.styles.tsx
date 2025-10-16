@@ -20,7 +20,7 @@ export const Scroll = styled.ScrollView({
  * - right: -PANEL_WIDTH 로 화면 밖에 위치(닫혀있는 상태)
  * - Animated translateX 로만 슬라이딩 제어
  */
-export const FloatingWrap = styled.View({
+export const FloatingWrap = styled.View(({ theme }) => ({
   position: 'absolute',
   right: -PANEL_WIDTH,
   top: 0,
@@ -28,19 +28,19 @@ export const FloatingWrap = styled.View({
   justifyContent: 'center',
   alignItems: 'flex-end',
   zIndex: 1000,
-  shadowColor: '#000',
+  shadowColor: theme.colors.Black,
   shadowOpacity: 0.12,
   shadowRadius: 10,
   shadowOffset: { width: 0, height: 4 },
-});
+}));
 
-export const TocPanelWrap = styled.View({
+export const TocPanelWrap = styled.View(({ theme }) => ({
   width: PANEL_WIDTH,
-  backgroundColor: '#FFFFFF',
+  backgroundColor: theme.colors.Neutral.N0,
   borderTopLeftRadius: 8,
   borderBottomLeftRadius: 8,
   overflow: 'hidden',
-});
+}));
 
 export const TocPanel = styled.ScrollView({
   paddingVertical: 12,
@@ -74,30 +74,27 @@ export const TocText = styled.Text(({ theme }) => ({
 export const TocTextActive = styled.Text(({ theme }) => ({
   color: theme.colors.Blue.B200,
   ...theme.typography.Caption1,
-  fontWeight: '700',
 }));
 
-/** 헤딩 H1, H2 공통 스타일 */
 export const HStyle = styled.Text(({ theme }) => ({
   color: theme.colors.Blue.B200,
-  fontWeight: '700',
+}));
+
+/** 헤딩들 */
+export const H1 = styled(HStyle)(({ theme }) => ({
+  ...theme.typography.H1,
   marginTop: 16,
   marginBottom: 8,
 }));
 
-/** 헤딩들 */
-export const H1 = styled(HStyle)({
-  fontSize: 24,
-});
+export const H2 = styled(HStyle)(({ theme }) => ({
+  ...theme.typography.H2,
+  marginTop: 16,
+  marginBottom: 8,
+}));
 
-export const H2 = styled(HStyle)({
-  fontSize: 20,
-});
-
-export const H3 = styled.Text(({ theme }) => ({
-  color: theme.colors.Neutral.N600,
-  fontSize: 18,
-  fontWeight: '600',
+export const H3 = styled(HStyle)(({ theme }) => ({
+  ...theme.typography.H3,
   marginTop: 14,
   marginBottom: 6,
 }));
@@ -135,12 +132,11 @@ export const CodeBox = styled.View({
   marginVertical: 10,
 });
 
-export const CodeText = styled.Text({
-  color: '#E5E7EB',
+export const CodeText = styled.Text(({ theme }) => ({
+  color: theme.colors.Neutral.N20,
   fontFamily: 'Courier',
-  fontSize: 13,
-  lineHeight: 18,
-});
+  lineHeight: 16,
+}));
 
 export const CodeInline = styled.Text(({ theme }) => ({
   fontFamily: 'Courier',
@@ -158,10 +154,10 @@ export const Quote = styled.View(({ theme }) => ({
   marginVertical: 8,
 }));
 
-export const QuoteText = styled.Text({
-  color: '#4B5563',
+export const QuoteText = styled.Text(({ theme }) => ({
   fontStyle: 'italic',
-});
+  color: theme.colors.Neutral.N300,
+}));
 
 /** 구분선 */
 export const Hr = styled.View(({ theme }) => ({
@@ -233,8 +229,7 @@ export const TableHeaderCell = styled.View({
   paddingHorizontal: 10,
 });
 
-export const TableHeaderText = styled.Text(({ theme }) => ({
-  fontWeight: '700',
+export const TableText = styled.Text(({ theme }) => ({
   color: theme.colors.Neutral.N400,
 }));
 
@@ -249,7 +244,3 @@ export const TableCell = styled.View({
   paddingVertical: 8,
   paddingHorizontal: 10,
 });
-
-export const TableCellText = styled.Text(({ theme }) => ({
-  color: theme.colors.Neutral.N400,
-}));
