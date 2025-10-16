@@ -76,6 +76,7 @@ export const TocTextActive = styled.Text(({ theme }) => ({
   ...theme.typography.Caption1,
 }));
 
+// Heading 공통 스타일
 export const HStyle = styled.Text(({ theme }) => ({
   color: theme.colors.Blue.B200,
 }));
