@@ -1,10 +1,12 @@
 import styled from '@emotion/native';
 
-export const Card = styled.View(({ theme }: any) => ({
+export const Card = styled.View(({ theme }) => ({
   borderRadius: 12,
   backgroundColor: theme.colors.Neutral.N0,
   padding: 16,
   gap: 12,
+  borderWidth: 1,
+  borderColor: theme.colors.Neutral.N60,
   shadowOpacity: 0.08,
   shadowRadius: 10,
   shadowOffset: { width: 0, height: 4 },
