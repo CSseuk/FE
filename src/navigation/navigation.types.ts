@@ -1,3 +1,4 @@
+import type { NavigatorScreenParams } from '@react-navigation/native';
 import type { QuizType } from '@src/types/quiz';
 
 export type RootStackParamList = {
@@ -13,7 +14,7 @@ export type AuthStackParamList = {
 };
 
 export type TabParamList = {
-  Home: undefined;
+  Home: NavigatorScreenParams<HomeStackParamList>;
   Bookmark: undefined;
   Docs: undefined;
   Mypage: undefined;

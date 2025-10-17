@@ -5,7 +5,6 @@ import * as S from './QBox.styles';
 import type { QBoxProps, StatusMeta } from './qbox.types';
 import { SOLVE_STATES, ICONS, BOOKMARK_HITSLOP } from './qbox.constants';
 
-// ✅ Label은 named export로 가져와야 합니다.
 import { Label } from '../LabelFilter/LabelFilter';
 
 export default function QBox({
