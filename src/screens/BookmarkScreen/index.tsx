@@ -2,7 +2,7 @@ import { useState, useCallback, useMemo } from 'react';
 import * as S from './BookmarkScreen.styles';
 
 import { LabelFilter, QBox } from '@design-system/index';
-import { FlatList } from 'react-native';
+import { FlatList, ScrollView } from 'react-native';
 
 import {
   CompositeNavigationProp,
@@ -53,7 +53,7 @@ export default function BookmarkScreen() {
         Section={item.type}
         title={item.title}
         description={item.description}
-        isLabeled={false}
+        isLabeled={true}
         isSolved={item.isSolved}
         isBookmarked={item.isBookmarked ? 'true' : 'false'}
         onToggleBookmark={() => onToggleBookmark(item.id)}
@@ -77,7 +77,17 @@ export default function BookmarkScreen() {
           복습을 위한{'\n'}나만의 <S.DetailText>북마크 리스트</S.DetailText>
           예요.
         </S.Title>
-        <LabelFilter currentSelected={selected} onChange={setSelected} />
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            alignItems: 'center',
+            paddingVertical: 15,
+          }}
+        >
+          <LabelFilter currentSelected={selected} onChange={setSelected} />
+        </ScrollView>
+
         <FlatList
           showsVerticalScrollIndicator={false}
           overScrollMode="never"
