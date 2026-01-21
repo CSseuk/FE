@@ -1,25 +1,24 @@
-import styled from '@emotion/native';
+import styled from "@emotion/native";
 
 export const Wrapper = styled.View(({ theme }) => ({
   flex: 1,
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  backgroundColor: theme.colors.Neutral.N0 || '#ffffff',
+  justifyContent: "flex-start",
+  alignItems: "center",
+  backgroundColor: theme.colors.Neutral.N0 || "#ffffff",
 }));
 
 export const Container = styled.View(() => ({
   flex: 1,
-  width: '100%',
-  flexDirection: 'column',
-  justifyContent: 'center',
+  width: "100%",
+  flexDirection: "column",
+  justifyContent: "center",
   gap: 24,
-  // paddingHorizontal: 24,
+  paddingHorizontal: 24,
 }));
 
 export const Title = styled.Text(({ theme }) => ({
   ...theme.typography.H2,
   color: theme.colors.Neutral.N800,
-  paddingHorizontal: 24,
 }));
 
 export const DetailText = styled.Text(({ theme }) => ({
