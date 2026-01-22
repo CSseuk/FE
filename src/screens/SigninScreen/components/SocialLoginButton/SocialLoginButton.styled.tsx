@@ -7,4 +7,3 @@ export const Button = styled.Pressable({
   justifyContent: 'center',
   alignItems: 'center',
 });
-

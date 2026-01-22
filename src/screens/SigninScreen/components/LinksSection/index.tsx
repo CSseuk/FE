@@ -1,7 +1,8 @@
-import { Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '@src/navigation/navigation.types';
+import { Pressable } from 'react-native';
+
 import * as S from './LinksSection.styled';
 
 export default function LinksSection() {

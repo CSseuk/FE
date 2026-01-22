@@ -1,6 +1,8 @@
 import { Image } from 'react-native';
-import * as S from './SocialLoginSection.styled';
+
 import SocialLoginButton from '../SocialLoginButton';
+
+import * as S from './SocialLoginSection.styled';
 
 export default function SocialLoginSection() {
   return (
@@ -31,4 +33,3 @@ export default function SocialLoginSection() {
     </S.Container>
   );
 }
-

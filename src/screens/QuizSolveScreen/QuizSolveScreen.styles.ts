@@ -7,8 +7,8 @@ export const Wrapper = styled.View(({ theme }) => ({
   backgroundColor: theme.colors.Neutral.N0,
 }));
 
-export const Container = styled.View(({}) => ({
+export const Container = styled.View({
   display: 'flex',
   flexDirection: 'column',
   padding: 24,
-}));
+});

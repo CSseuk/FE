@@ -1,5 +1,6 @@
-import { Pressable, StyleProp, ViewStyle } from 'react-native';
 import { useTheme } from '@emotion/react';
+import { StyleProp, ViewStyle } from 'react-native';
+
 import * as S from './SocialLoginButton.styled';
 
 interface SocialLoginButtonProps {
@@ -38,4 +39,3 @@ export default function SocialLoginButton({
     </S.Button>
   );
 }
-

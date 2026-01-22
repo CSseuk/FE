@@ -1,10 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '@src/navigation/navigation.types';
 import { useEffect, useRef } from 'react';
 import { Image, Animated } from 'react-native';
+
 import * as S from './index.styles';
-import { useNavigation } from '@react-navigation/native';
 
 export default function SplashScreen() {
-  const navigation = useNavigation<any>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
 

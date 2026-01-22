@@ -1,6 +1,7 @@
-import type { InlineToken } from '../types/MarkdownRenderer.types';
 import { Text } from 'react-native';
+
 import * as S from '../MarkdownRenderer.styles';
+import type { InlineToken } from '../types/MarkdownRenderer.types';
 
 /**
  * InlineToken을 각 스타일을 입힌 Text로 렌더링

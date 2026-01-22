@@ -1,6 +1,6 @@
-import { AppRegistry } from 'react-native';
-import { getStorybookUI, configure } from '@storybook/react-native';
 import * as AsyncStorage from '@react-native-async-storage/async-storage';
+import { getStorybookUI, configure } from '@storybook/react-native';
+import { AppRegistry } from 'react-native';
 
 import '@storybook/addon-ondevice-actions/register';
 import '@storybook/addon-ondevice-controls/register';

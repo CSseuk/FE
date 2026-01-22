@@ -1,6 +1,7 @@
+import theme from '@styles/theme';
 import React from 'react';
 import { ViewStyle } from 'react-native';
-import theme from '@styles/theme';
+
 import * as S from './InputLabel.styles';
 import { useInputLabel, InputSize, InputIconProps } from './useInputLabel';
 

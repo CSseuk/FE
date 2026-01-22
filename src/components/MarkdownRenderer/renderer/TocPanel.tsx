@@ -1,5 +1,6 @@
 import React from 'react';
-import { Animated } from 'react-native';
+import { Animated, TextStyle } from 'react-native';
+
 import * as S from '../MarkdownRenderer.styles';
 import type { Block } from '../types/MarkdownRenderer.types';
 
@@ -37,11 +38,10 @@ export default function TocPanel({
             {toc.map((h) => {
               const isActive = activeId === h.id;
               const TextComp = isActive ? S.TocTextActive : S.TocText;
+              const tocTextStyle: TextStyle = { marginLeft: (h.level - 1) * 8 };
               return (
                 <S.TocItem key={h.id} onPress={() => onItemPress(h.id)}>
-                  <TextComp style={{ marginLeft: (h.level - 1) * 8 }}>
-                    {h.text}
-                  </TextComp>
+                  <TextComp style={tocTextStyle}>{h.text}</TextComp>
                 </S.TocItem>
               );
             })}

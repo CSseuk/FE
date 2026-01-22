@@ -1,5 +1,5 @@
-import type { SignupFormData } from '../hooks/useSignupForm';
 import type { AgreementState } from '../hooks/useAgreement';
+import type { SignupFormData } from '../hooks/useSignupForm';
 
 // 아이디: 8자 이상, 영문/숫자만 허용
 const ID_REGEX = /^[a-zA-Z0-9]{8,}$/;

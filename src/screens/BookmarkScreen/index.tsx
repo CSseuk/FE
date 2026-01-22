@@ -1,23 +1,20 @@
-import { useState, useCallback, useMemo } from 'react';
-import * as S from './BookmarkScreen.styles';
-
 import { LabelFilter, QBox } from '@design-system/index';
-import { FlatList, ScrollView } from 'react-native';
-
+import type { ChipKind } from '@design-system/LabelFilter/LabelFilter';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import {
   CompositeNavigationProp,
   useNavigation,
 } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { QUIZLIST_DB } from '@screens/QuizListScreen/mocks/QuizListScreen.mock';
 import type {
   TabParamList,
   HomeStackParamList,
 } from '@src/navigation/navigation.types';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { useState, useCallback, useMemo } from 'react';
+import { FlatList, ScrollView, View } from 'react-native';
 
-import { QUIZLIST_DB } from '@screens/QuizListScreen/mocks/QuizListScreen.mock';
-
-import type { ChipKind } from '@design-system/LabelFilter/LabelFilter';
+import * as S from './BookmarkScreen.styles';
 
 type Nav = CompositeNavigationProp<
   BottomTabNavigationProp<TabParamList, 'Bookmark'>,
@@ -77,16 +74,19 @@ export default function BookmarkScreen() {
           복습을 위한{'\n'}나만의 <S.DetailText>북마크 리스트</S.DetailText>
           예요.
         </S.Title>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{
-            alignItems: 'center',
-            paddingVertical: 15,
-          }}
-        >
-          <LabelFilter currentSelected={selected} onChange={setSelected} />
-        </ScrollView>
+        <View style={{ height: 35 }}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              alignItems: 'center',
+              paddingHorizontal: 0,
+            }}
+            style={{ flex: 1 }}
+          >
+            <LabelFilter currentSelected={selected} onChange={setSelected} />
+          </ScrollView>
+        </View>
 
         <FlatList
           showsVerticalScrollIndicator={false}
@@ -95,6 +95,7 @@ export default function BookmarkScreen() {
           keyExtractor={(item) => String(item.id)}
           ItemSeparatorComponent={Separator}
           renderItem={renderItem}
+          style={{ paddingBottom: 24 }}
           ListEmptyComponent={
             <S.EmptyText>선택한 조건의 북마크가 없어요.</S.EmptyText>
           }

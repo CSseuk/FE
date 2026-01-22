@@ -1,9 +1,10 @@
+import { Label } from '@design-system/LabelFilter/LabelFilter';
+import type { QuizType } from '@src/types/quiz';
+
 import * as S from './SolveCountBox.styles';
 
-import { Label } from '@design-system/LabelFilter/LabelFilter';
-
 type SolveCountBoxProps = {
-  quizType: string;
+  quizType: QuizType;
   allCount: number;
   solveCount: number;
 };
@@ -16,7 +17,7 @@ export default function SolveCountBox({
   const percent = allCount > 0 ? Math.round((solveCount / allCount) * 100) : 0;
   return (
     <S.Container1>
-      <Label kind={quizType as any} active />
+      <Label kind={quizType} active />
 
       <S.SolveCountContainer>
         <S.SolveCount>풀이한 문제</S.SolveCount>

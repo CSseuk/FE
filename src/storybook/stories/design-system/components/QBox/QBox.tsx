@@ -1,11 +1,12 @@
+import { useTheme } from '@emotion/react';
 import React, { useMemo, useCallback } from 'react';
 import { Pressable, Image } from 'react-native';
-import { useTheme } from '@emotion/react';
-import * as S from './QBox.styles';
-import type { QBoxProps, StatusMeta } from './qbox.types';
-import { SOLVE_STATES, ICONS, BOOKMARK_HITSLOP } from './qbox.constants';
 
 import { Label } from '../LabelFilter/LabelFilter';
+
+import { SOLVE_STATES, ICONS, BOOKMARK_HITSLOP } from './qbox.constants';
+import * as S from './QBox.styles';
+import type { QBoxProps, StatusMeta } from './qbox.types';
 
 export default function QBox({
   Section,
@@ -17,7 +18,7 @@ export default function QBox({
   onPress,
   onToggleBookmark,
 }: QBoxProps) {
-  const theme = useTheme() as any;
+  const theme = useTheme();
 
   const bookmarked = isBookmarked === 'true';
 
@@ -58,7 +59,7 @@ export default function QBox({
 
         <S.BookmarkWrap>
           <Pressable
-            onPress={(e: any) => {
+            onPress={(e) => {
               if (e?.stopPropagation) e.stopPropagation();
               toggleBookmark();
             }}
@@ -74,7 +75,7 @@ export default function QBox({
         </S.BookmarkWrap>
 
         {/* 상단 라벨 */}
-        {Section && isLabeled ? <Label kind={Section as any} active /> : null}
+        {Section && isLabeled ? <Label kind={Section} active /> : null}
 
         {/* 제목 */}
         {!!title && <S.Title numberOfLines={2}>{title}</S.Title>}

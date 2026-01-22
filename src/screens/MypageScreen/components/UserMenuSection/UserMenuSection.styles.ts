@@ -25,12 +25,12 @@ export const Hr = styled.View(({ theme }) => ({
   marginVertical: 18,
 }));
 
-export const MenuItem = styled.TouchableOpacity(({ theme }) => ({
+export const MenuItem = styled.TouchableOpacity({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
   marginVertical: 18,
-}));
+});
 
 export const MenuLabel = styled.Text(({ theme }) => ({
   color: theme.colors.Neutral.N600,

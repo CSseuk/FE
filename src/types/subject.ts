@@ -1,5 +1,6 @@
-import type { QuizType } from './quiz';
 import type { ImageSourcePropType } from 'react-native';
+
+import type { QuizType } from './quiz';
 
 export type Subject = {
   id: number;
@@ -10,5 +11,5 @@ export type Subject = {
   Colors: string;
   logo: ImageSourcePropType;
   count?: number;
-  value?: any;
+  value?: unknown;
 };

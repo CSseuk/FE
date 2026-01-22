@@ -1,20 +1,20 @@
-import styled from "@emotion/native";
+import styled from '@emotion/native';
 
 export const Container = styled.View({
   flex: 1,
 });
 
 export const CardPressable = styled.Pressable<{ $width?: number }>((props) => ({
-  width: props.$width ?? "auto",
+  width: props.$width ?? 'auto',
   flex: 1,
   elevation: 3,
   marginVertical: 8,
 }));
 
 export const CardBg = styled.ImageBackground({
-  width: "100%",
+  width: '100%',
   aspectRatio: 1,
-  position: "relative",
+  position: 'relative',
 });
 
 export const BadgeText = styled.Text<{
@@ -23,7 +23,7 @@ export const BadgeText = styled.Text<{
   $color: string;
   $fontSize: number;
 }>(({ $top, $right, $color, $fontSize }) => ({
-  position: "absolute",
+  position: 'absolute',
   top: $top,
   right: $right,
   color: $color,
@@ -35,12 +35,12 @@ export const CardInner = styled.View<{ $px: number; $py: number }>(
     flex: 1,
     paddingHorizontal: $px,
     paddingVertical: $py,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
   })
 );
 
 export const TitleWrap = styled.View({
-  position: "relative",
+  position: 'relative',
 });
 
 export const TitleText = styled.Text<{
@@ -55,12 +55,12 @@ export const TitleText = styled.Text<{
 
 export const Logo = styled.Image<{ $size: number; $top: number }>(
   ({ $size, $top }) => ({
-    position: "absolute",
+    position: 'absolute',
     right: 0,
     top: $top,
     width: $size,
     height: $size,
-    resizeMode: "contain",
+    resizeMode: 'contain',
   })
 );
 

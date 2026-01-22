@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
-import { Button, Modal } from '@design-system/index';
-import * as S from './SignupScreen.styles';
-import { useSignupForm } from './hooks/useSignupForm';
-import { useAgreement } from './hooks/useAgreement';
-import { InputSection, AgreementSection } from './components';
-import { isFormValid, isValidVerificationCode } from './utils/validation';
 import { useModal } from '@contexts/ModalProvider';
+import { Button, Modal } from '@design-system/index';
 import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '@src/navigation/navigation.types';
+import React, { useState } from 'react';
+
+import { InputSection, AgreementSection } from './components';
+import { useAgreement } from './hooks/useAgreement';
+import { useSignupForm } from './hooks/useSignupForm';
+import * as S from './SignupScreen.styles';
+import { isFormValid, isValidVerificationCode } from './utils/validation';
 
 export default function SignupScreen() {
-  const navigation = useNavigation<any>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { setIsOpen, setModalContent } = useModal();
 
   const {

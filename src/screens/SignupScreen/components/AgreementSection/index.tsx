@@ -1,8 +1,10 @@
-import React from 'react';
 import { Checkbox } from '@design-system/index';
-import * as S from './AgreementSection.styled';
-import type { AgreementState } from '../../hooks/useAgreement';
+import React from 'react';
+
 import { AGREEMENT_LABELS } from '../../constants';
+import type { AgreementState } from '../../hooks/useAgreement';
+
+import * as S from './AgreementSection.styled';
 
 type AgreementSectionProps = {
   agreement: AgreementState;

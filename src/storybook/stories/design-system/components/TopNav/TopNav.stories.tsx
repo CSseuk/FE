@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react-native';
 import { ThemeProvider } from '@emotion/react';
-import { View, Alert } from 'react-native';
+import { storiesOf } from '@storybook/react-native';
 import theme from '@styles/theme';
+import React from 'react';
+import { View, Alert } from 'react-native';
+
 import TopNav from './TopNav';
 
 const withTheme = (Story: React.ComponentType) => (

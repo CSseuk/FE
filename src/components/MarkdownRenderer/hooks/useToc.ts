@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from 'react';
-import type { ScrollView } from 'react-native';
+import type { LayoutChangeEvent, ScrollView } from 'react-native';
+
 import type { Block } from '../types/MarkdownRenderer.types';
 
 /**
@@ -20,7 +21,7 @@ export function useToc(blocks: Block[]) {
     [blocks]
   );
 
-  const recordAnchor = (id: string) => (e: any) => {
+  const recordAnchor = (id: string) => (e: LayoutChangeEvent) => {
     const y = e.nativeEvent.layout.y as number;
     setAnchorY((prev) => ({ ...prev, [id]: y }));
   };

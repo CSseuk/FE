@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
-import { useCalendarCells } from './useCalendarCells';
 import CalendarBlock from '../CalendarBlock/CalendarBlock';
+
 import * as S from './CalendarMonth.styles';
+import { useCalendarCells } from './useCalendarCells';
 
 type CountsMap = Record<string, number>;
 

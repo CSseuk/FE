@@ -1,23 +1,22 @@
+import { useRoute } from '@react-navigation/native';
+import type { RouteProp } from '@react-navigation/native';
+import type { HomeStackParamList } from '@src/navigation/navigation.types';
 import React from 'react';
-import * as S from './QuizSolveScreen.styles';
+import { ActivityIndicator, View } from 'react-native';
 
+import Bottombar from './components/bottombar/Bottombar';
 import MCQResult from './components/mcqresult/MCQResult';
 import MCQView from './components/mcqview/MCQView';
 import SubjectiveResult from './components/subjectiveresult/SubjectiveResult';
 import SubjectiveView from './components/subjectiveview/SubjectiveView';
-import Bottombar from './components/bottombar/Bottombar';
-
-import { ActivityIndicator, View } from 'react-native';
-import { useRoute } from '@react-navigation/native';
-import type { RouteProp } from '@react-navigation/native';
 import { useQuizSolve } from './hooks/useQuizSolve';
-import type { HomeStackParamList } from '@src/navigation/navigation.types';
+import * as S from './QuizSolveScreen.styles';
 
 type QuizSolveRoute = RouteProp<HomeStackParamList, 'QuizSolve'>;
 
 export default function QuizSolveScreen() {
   const route = useRoute<QuizSolveRoute>();
-  const quizId = String(route?.params?.quizId) ?? '1';
+  const quizId = String(route?.params?.quizId);
 
   const {
     loading,
@@ -48,7 +47,7 @@ export default function QuizSolveScreen() {
     );
   }
 
-  const { kind, title, prompt, explanation, correctAnswer, options } = detail;
+  const { kind, title, prompt, explanation, correctAnswer } = detail;
 
   return (
     <S.Wrapper>

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Pressable, View, Text } from 'react-native';
 import { useTheme } from '@emotion/react';
 import { Feather } from '@expo/vector-icons';
+import React from 'react';
+import { Pressable, View, Text } from 'react-native';
 
 type CheckboxProps = {
   checked: boolean;

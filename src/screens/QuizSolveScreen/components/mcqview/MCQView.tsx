@@ -1,14 +1,15 @@
+import { Button } from '@design-system/index';
 import { FlatList, View } from 'react-native';
-import * as S from './MCQView.styles';
 
 import TopQuiz from '../topquiz/TopQuiz';
-import { Button } from '@design-system/index';
+
+import * as S from './MCQView.styles';
 
 type MCQViewProps = {
   selectedOption: string;
   onSelectOption: (optionId: string) => void;
   quizId: string;
-  options: any;
+  options?: Array<{ id: string; text: string }>;
   title: string;
   prompt: string;
 };
@@ -25,7 +26,7 @@ export default function MCQView({
     <S.Wrapper>
       <TopQuiz quizId={quizId} title={title} prompt={prompt} />
       <FlatList
-        data={options}
+        data={options ?? []}
         keyExtractor={(o) => o.id}
         contentContainerStyle={{ gap: 12 }}
         renderItem={({ item }) => {

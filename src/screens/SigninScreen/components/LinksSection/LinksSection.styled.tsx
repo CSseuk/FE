@@ -17,4 +17,3 @@ export const Divider = styled.View(({ theme }) => ({
   height: 12,
   backgroundColor: theme.colors.Neutral.N60,
 }));
-

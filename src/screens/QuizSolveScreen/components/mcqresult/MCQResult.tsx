@@ -1,6 +1,7 @@
-import * as S from './MCQResult.styles';
-import TopQuiz from '../topquiz/TopQuiz';
 import AnswerBox from '../answerbox/AnswerBox';
+import TopQuiz from '../topquiz/TopQuiz';
+
+import * as S from './MCQResult.styles';
 
 type MCQResultProps = {
   isCorrect: boolean;

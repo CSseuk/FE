@@ -1,8 +1,10 @@
-import React from 'react';
 import { InputLabel, InputWithButton } from '@design-system/index';
-import * as S from './InputSection.styled';
-import type { SignupFormData } from '../../hooks/useSignupForm';
+import React from 'react';
+
 import { INPUT_LABELS, INPUT_PLACEHOLDERS } from '../../constants';
+import type { SignupFormData } from '../../hooks/useSignupForm';
+
+import * as S from './InputSection.styled';
 
 type InputSectionProps = {
   formData: SignupFormData;
@@ -95,8 +97,8 @@ export const InputSection = ({
           phoneErrorMessage
             ? phoneErrorMessage
             : isVerificationCodeSent
-            ? '인증번호를 전송했습니다.'
-            : undefined
+              ? '인증번호를 전송했습니다.'
+              : undefined
         }
         buttonTitle={isVerificationCodeSent ? '다시 전송하기' : '인증번호 전송'}
         onButtonPress={onSendVerificationCode}

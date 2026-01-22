@@ -1,18 +1,20 @@
-import { Image } from 'react-native';
-import { InputLabel, Button, Modal } from '@design-system/index';
+import { InputLabel, Button } from '@design-system/index';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '@src/navigation/navigation.types';
 import { useState } from 'react';
-import * as S from './SigninScreen.styles';
+import { Image } from 'react-native';
+
 import LinksSection from './components/LinksSection';
 import SocialLoginSection from './components/SocialLoginSection';
-import { useModal } from '@contexts/ModalProvider';
-import { useNavigation } from '@react-navigation/native';
+import * as S from './SigninScreen.styles';
 
 export default function SigninScreen() {
   const [id, setId] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
-  const { setIsOpen, setModalContent } = useModal();
-  const navigation = useNavigation<any>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);

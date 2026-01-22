@@ -1,23 +1,14 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { TopNav, BotNav } from '@design-system/index';
+import {
+  createBottomTabNavigator,
+  type BottomTabNavigationOptions,
+} from '@react-navigation/bottom-tabs';
 import {
   NavigationContainer,
   getFocusedRouteNameFromRoute,
   type RouteProp,
 } from '@react-navigation/native';
-import {
-  createBottomTabNavigator,
-  type BottomTabNavigationOptions,
-} from '@react-navigation/bottom-tabs';
-import type { ViewStyle } from 'react-native';
-import { safeGoBack } from '@src/utils/safeGoBack';
-import { TopNav, BotNav } from '@design-system/index';
-import {
-  RootStackParamList,
-  TabParamList,
-  AuthStackParamList,
-  HomeStackParamList,
-  DocsStackParamList,
-} from './navigation.types';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   HomeScreen,
   BookmarkScreen,
@@ -25,11 +16,21 @@ import {
   DocsDetailScreen,
   MypageScreen,
   SplashScreen,
-  LoginScreen,
+  SigninScreen,
   SignupScreen,
   QuizListScreen,
   QuizSolveScreen,
 } from '@screens/index';
+import { safeGoBack } from '@src/utils/safeGoBack';
+import type { ViewStyle } from 'react-native';
+
+import {
+  RootStackParamList,
+  TabParamList,
+  AuthStackParamList,
+  HomeStackParamList,
+  DocsStackParamList,
+} from './navigation.types';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
@@ -57,14 +58,7 @@ export default function RootNavigator() {
         screenOptions={{ headerShown: false }}
       >
         <RootStack.Screen name="Splash" component={SplashScreen} />
-        <RootStack.Screen
-          name="Auth"
-          component={AuthNavigator}
-          options={{
-            headerShown: true,
-            header: () => <TopNav Logo={true} title="" />,
-          }}
-        />
+        <RootStack.Screen name="Auth" component={AuthNavigator} />
         <RootStack.Screen name="Tabs" component={TabNavigator} />
       </RootStack.Navigator>
     </NavigationContainer>
@@ -75,12 +69,27 @@ function AuthNavigator() {
   return (
     <AuthStack.Navigator
       screenOptions={{
-        headerShown: true,
-        header: () => <TopNav Logo={true} title="" />,
+        headerShown: false,
       }}
     >
-      <AuthStack.Screen name="Login" component={LoginScreen} />
-      <AuthStack.Screen name="Signup" component={SignupScreen} />
+      <AuthStack.Screen name="Login" component={SigninScreen} />
+      <AuthStack.Screen
+        name="Signup"
+        component={SignupScreen}
+        options={({ navigation }) => ({
+          headerShown: true,
+          header: () => (
+            <TopNav
+              Logo={false}
+              title="회원가입"
+              leftIconName="chevron-left"
+              onLeftPress={() =>
+                safeGoBack(navigation, () => navigation.navigate('Login'))
+              }
+            />
+          ),
+        })}
+      />
     </AuthStack.Navigator>
   );
 }
@@ -88,7 +97,9 @@ function AuthNavigator() {
 function TabNavigator() {
   return (
     <Tab.Navigator
-      tabBar={(props) => <BotNav {...(props as any)} />}
+      tabBar={(props) => (
+        <BotNav {...(props as Parameters<typeof BotNav>[0])} />
+      )}
       screenOptions={{
         headerShown: true,
         header: () => <TopNav Logo={true} title="" />,
@@ -156,7 +167,7 @@ function HomeStackNavigator() {
         name="QuizSolve"
         component={QuizSolveScreen}
         options={({ navigation, route }) => {
-          const quizType = (route.params as any)?.quizType;
+          const quizType = route.params?.quizType;
           return {
             headerShown: true,
             header: () => (

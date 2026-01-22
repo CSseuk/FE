@@ -21,7 +21,7 @@ export const Label = ({
   onPress,
   labelOverride,
 }: LabelChipProps) => {
-  const theme = useTheme() as any;
+  const theme = useTheme();
 
   const isAll = kind === 'all';
   const basePalette = isAll

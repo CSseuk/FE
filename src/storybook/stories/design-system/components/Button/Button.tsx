@@ -1,3 +1,6 @@
+import { getButtonSizeMap, type ComponentSize } from '@constants/componentSize';
+import { useTheme } from '@emotion/react';
+import { Feather } from '@expo/vector-icons';
 import React from 'react';
 import {
   View,
@@ -8,10 +11,6 @@ import {
   ViewStyle,
   Pressable,
 } from 'react-native';
-import { useTheme } from '@emotion/react';
-
-import { Feather } from '@expo/vector-icons';
-import { getButtonSizeMap, type ComponentSize } from '@constants/componentSize';
 
 type FeatherName = React.ComponentProps<typeof Feather>['name'];
 
@@ -132,10 +131,10 @@ export default function Button({
         const visual: Status = isDisabled
           ? 'Disabled'
           : visualDisabled
-          ? 'Disabled'
-          : pressed
-          ? 'Pressed'
-          : 'Default';
+            ? 'Disabled'
+            : pressed
+              ? 'Pressed'
+              : 'Default';
         const triplet = buttonStyleMap[button][visual];
 
         return [
@@ -160,10 +159,10 @@ export default function Button({
         const visual: Status = isDisabled
           ? 'Disabled'
           : visualDisabled
-          ? 'Disabled'
-          : pressed
-          ? 'Pressed'
-          : 'Default';
+            ? 'Disabled'
+            : pressed
+              ? 'Pressed'
+              : 'Default';
         const triplet = buttonStyleMap[button][visual];
 
         const Left = buildLeftIcon(triplet.color!);

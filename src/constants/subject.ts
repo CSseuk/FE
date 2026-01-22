@@ -1,6 +1,7 @@
 import type { Subject } from '@src/types/subject';
+import type { ThemeType } from '@styles/theme';
 
-export const SUBJECTS = (colors: any): Subject[] => [
+export const SUBJECTS = (colors: ThemeType['colors']): Subject[] => [
   {
     id: 1,
     title: '자료구조',

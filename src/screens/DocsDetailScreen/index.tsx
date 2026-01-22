@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { View, ActivityIndicator } from 'react-native';
-import { RouteProp, useRoute } from '@react-navigation/native';
 import MarkdownRenderer from '@components/MarkdownRenderer';
 import { useTheme } from '@emotion/react';
-import * as S from './DocsDetailScreen.styles';
+import { RouteProp, useRoute } from '@react-navigation/native';
 import type { DocsStackParamList } from '@src/navigation/navigation.types';
+import React, { useEffect, useState } from 'react';
+import { View, ActivityIndicator } from 'react-native';
+
+import * as S from './DocsDetailScreen.styles';
 import { MOCK_DOCS } from './mocks/DocsDetailScreen.mocks';
 
 type DocsDetailRouteProp = RouteProp<DocsStackParamList, 'DocsDetail'>;
@@ -20,7 +21,9 @@ export default function DocsDetailScreen() {
       try {
         const found = MOCK_DOCS[0];
         setContent(found.content);
-      } catch {}
+      } catch {
+        // empty
+      }
     };
     fetchMarkdown();
   }, [params]);

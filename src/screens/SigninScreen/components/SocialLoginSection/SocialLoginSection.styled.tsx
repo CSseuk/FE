@@ -29,4 +29,3 @@ export const SocialLoginContainer = styled.View({
   gap: 16,
   marginTop: 16,
 });
-
