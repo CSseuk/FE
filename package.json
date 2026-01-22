@@ -9,9 +9,11 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "postinstall": "patch-package",
+    "prepare": "husky",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@emotion/native": "^11.11.0",
@@ -76,6 +78,8 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "globals": "^17.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "patch-package": "^8.0.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.53.1"
