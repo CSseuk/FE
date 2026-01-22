@@ -1,12 +1,13 @@
-import React, { useMemo, useState, useCallback } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { Image } from 'react-native';
-import * as S from './DocsScreen.styles';
 import { SUBJECTS } from '@constants/subject';
 import { useTheme } from '@emotion/react';
-import type { Subject } from '@src/types/subject';
+import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { DocsStackParamList } from '@src/navigation/navigation.types';
+import type { Subject } from '@src/types/subject';
+import React, { useMemo, useState, useCallback } from 'react';
+import { Image } from 'react-native';
+
+import * as S from './DocsScreen.styles';
 
 export default function DocsScreen() {
   const theme = useTheme();

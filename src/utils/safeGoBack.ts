@@ -1,4 +1,9 @@
-export const safeGoBack = (navigation: any, fallback?: () => void) => {
+import type { NavigationProp } from '@react-navigation/native';
+
+export const safeGoBack = (
+  navigation: NavigationProp<Record<string, object | undefined>>,
+  fallback?: () => void
+) => {
   if (navigation.canGoBack()) {
     navigation.goBack();
     return;

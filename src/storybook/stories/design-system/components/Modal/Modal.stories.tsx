@@ -1,11 +1,13 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react-native';
-import { ThemeProvider } from '@emotion/react';
-import Modal from './Modal';
-import Button from '../Button/Button';
-import theme from '@styles/theme';
 import { ModalProvider, useModal } from '@contexts/ModalProvider';
+import { ThemeProvider } from '@emotion/react';
+import { storiesOf } from '@storybook/react-native';
+import theme from '@styles/theme';
+import React from 'react';
 import { View } from 'react-native';
+
+import Button from '../Button/Button';
+
+import Modal from './Modal';
 
 const withTheme = (Story: React.ComponentType) => (
   <ThemeProvider theme={theme}>
@@ -24,9 +26,9 @@ const withTheme = (Story: React.ComponentType) => (
 const CheckModal = () => {
   return (
     <Modal
-      title='🎉 가입 완료 🎉'
+      title="🎉 가입 완료 🎉"
       content={'이제 CS 문제를 쓱 풀고,\n나만의 기록을 쌓아보세요.'}
-      buttonType='single'
+      buttonType="single"
       onCancel={() => {}}
     />
   );
@@ -42,9 +44,9 @@ const CheckModal = () => {
 const ConfirmModal = () => {
   return (
     <Modal
-      title='북마크를 해제하시겠어요?'
+      title="북마크를 해제하시겠어요?"
       content={'해제한 문제는 \n북마크 목록에서 사라져요.'}
-      buttonType='double'
+      buttonType="double"
       onCancel={() => {}}
       onConfirm={() => alert('confirm')}
     />
@@ -89,9 +91,9 @@ const ModalSimulation = () => {
   };
   return (
     <View style={{ gap: 12, padding: 20 }}>
-      <TriggerButton label='Check Modal' onPress={openCheckModal} />
-      <TriggerButton label='Confirm Modal' onPress={openConfirmModal} />
-      <TriggerButton label='Content Modal' onPress={openContentOnly} />
+      <TriggerButton label="Check Modal" onPress={openCheckModal} />
+      <TriggerButton label="Confirm Modal" onPress={openConfirmModal} />
+      <TriggerButton label="Content Modal" onPress={openContentOnly} />
     </View>
   );
 };

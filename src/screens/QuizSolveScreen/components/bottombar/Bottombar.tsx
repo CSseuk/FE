@@ -1,5 +1,6 @@
-import * as S from './Bottombar.styles';
 import { Button } from '@design-system/index';
+
+import * as S from './Bottombar.styles';
 
 type BottombarProps = {
   mode: 'solve' | 'result';

@@ -1,11 +1,12 @@
 // QBox.stories.tsx
-import React from 'react';
-import { storiesOf } from '@storybook/react-native';
 import { ThemeProvider } from '@emotion/react';
-import { View, Alert } from 'react-native';
-import theme from '@styles/theme';
-import QBox from './QBox';
 import type { QuizType } from '@src/types/quiz';
+import { storiesOf } from '@storybook/react-native';
+import theme from '@styles/theme';
+import React from 'react';
+import { View, Alert } from 'react-native';
+
+import QBox from './QBox';
 
 const withTheme = (Story: React.ComponentType) => (
   <ThemeProvider theme={theme}>

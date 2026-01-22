@@ -5,7 +5,8 @@ export const Wrapper = styled.View(({ theme }) => ({
   justifyContent: 'flex-start',
   alignItems: 'center',
   backgroundColor: theme.colors.Neutral.N0 || '#ffffff',
-  padding: 24,
+  paddingTop: 24,
+  paddingHorizontal: 24,
 }));
 
 export const Container = styled.View(() => ({
@@ -26,7 +27,8 @@ export const DetailText = styled.Text(({ theme }) => ({
 
 export const EmptyText = styled.Text(({ theme }) => ({
   ...theme.typography.H2,
-  color: theme.colors.Neutral.N800,
+  color: theme.colors.Neutral.N100,
+  textAlign: 'center',
 }));
 
 export const Separator = styled.View({

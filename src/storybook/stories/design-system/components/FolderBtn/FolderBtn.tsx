@@ -1,24 +1,27 @@
-import React, { useState } from 'react';
-import { FlatList, useWindowDimensions } from 'react-native';
 import { useTheme } from '@emotion/react';
+import React, { useState } from 'react';
+import {
+  FlatList,
+  useWindowDimensions,
+  type LayoutChangeEvent,
+} from 'react-native';
 
-import * as S from './FolderBtn.styled';
-import type { FolderBtnProps } from './folderBtn.types';
 import {
   DEFAULT_SUBJECTS,
   SCREEN_PADDING,
   GAP,
   BASE_WIDTH,
 } from './folderBtn.constants';
+import * as S from './FolderBtn.styled';
+import type { FolderBtnProps } from './folderBtn.types';
 
 export default function FolderBtn({
   subjects,
-  selectedId = null,
   numColumns = 2,
   onSelect,
   onPressSubject,
 }: FolderBtnProps) {
-  const theme = useTheme() as any;
+  const theme = useTheme();
 
   const data = React.useMemo(
     () => subjects ?? DEFAULT_SUBJECTS(theme.colors),
@@ -28,7 +31,8 @@ export default function FolderBtn({
   const { width: winW } = useWindowDimensions();
   const [outerW, setOuterW] = useState(0);
 
-  const onLayout = (e: any) => setOuterW(e.nativeEvent.layout.width);
+  const onLayout = (e: LayoutChangeEvent) =>
+    setOuterW(e.nativeEvent.layout.width);
   const containerW = outerW > 0 ? outerW : winW || 0;
 
   // 카드 폭 계산

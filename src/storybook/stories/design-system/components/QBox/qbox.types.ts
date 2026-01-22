@@ -1,4 +1,5 @@
-import { QuizType } from '@src/types/quiz';
+import type { QuizType } from '@src/types/quiz';
+import type { ImageSourcePropType } from 'react-native';
 
 export type SolveState = 'Solved' | 'Wrong' | 'NotSolved';
 
@@ -17,5 +18,5 @@ export type StatusMeta = {
   key: SolveState;
   color: string;
   text: string;
-  icon: any;
+  icon: ImageSourcePropType;
 };

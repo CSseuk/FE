@@ -1,8 +1,9 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react-native';
 import { ThemeProvider } from '@emotion/react';
-import { View } from 'react-native';
+import { storiesOf } from '@storybook/react-native';
 import theme from '@styles/theme';
+import React from 'react';
+import { View } from 'react-native';
+
 import CalendarMonth from './CalendarMonth';
 
 const withTheme = (Story: React.ComponentType) => (

@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+
 import { iso, getDaysInMonth } from './calendarMonth.utils';
 
 type CountsMap = Record<string, number>;
@@ -76,6 +77,7 @@ export function useCalendarCells(
     }
 
     return arr;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [year, month, counts, total, firstOffset, daysInThis, daysInPrev]);
 
   const weeks = useMemo(

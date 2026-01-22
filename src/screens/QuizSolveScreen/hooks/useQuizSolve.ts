@@ -1,8 +1,9 @@
 // screens/quizSolve/hooks/useQuizSolve.ts
-import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { HomeStackParamList } from '@src/navigation/navigation.types';
+import React from 'react';
+
 import { getQuizDetail } from '../mocks/QuizDetail.mocks';
 import type { QuizDetail } from '../types/QuizSolveScreen.types';
 

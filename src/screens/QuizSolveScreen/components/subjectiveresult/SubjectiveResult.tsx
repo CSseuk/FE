@@ -1,7 +1,9 @@
-import * as S from './SubjectiveResult.styles';
-import TopQuiz from '../topquiz/TopQuiz';
-import AnswerBox from '../answerbox/AnswerBox';
 import { InputLabel } from '@design-system/index';
+
+import AnswerBox from '../answerbox/AnswerBox';
+import TopQuiz from '../topquiz/TopQuiz';
+
+import * as S from './SubjectiveResult.styles';
 
 type SubjectiveResultProps = {
   quizId: string;

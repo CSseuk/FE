@@ -22,12 +22,12 @@ export const BookmarkWrap = styled.View({
   zIndex: 1,
 });
 
-export const Title = styled.Text(({ theme }: any) => ({
+export const Title = styled.Text(({ theme }) => ({
   color: theme.colors.Neutral.N600,
   ...(theme.typography?.H3 ?? { fontSize: 16, fontWeight: '700' }),
 }));
 
-export const Desc = styled.Text(({ theme }: any) => ({
+export const Desc = styled.Text(({ theme }) => ({
   color: theme.colors.Neutral.N400,
   ...(theme.typography?.Body3 ?? { fontSize: 13 }),
 }));
@@ -43,6 +43,6 @@ export const StatusInner = styled.View({
   gap: 4,
 });
 
-export const StatusText = styled.Text(({ theme }: any) => ({
+export const StatusText = styled.Text(({ theme }) => ({
   ...(theme.typography?.Button_Small ?? { fontSize: 12, fontWeight: '600' }),
 }));

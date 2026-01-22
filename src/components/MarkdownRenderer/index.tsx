@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
 import { Linking, NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
-import renderBlock from './renderer/renderBlock';
+
+import { useSlidingPanel } from './hooks/useSlidingPanel';
+import { useToc } from './hooks/useToc';
 import * as S from './MarkdownRenderer.styles';
 import parseBlocks from './parser/parseBlocks';
-import { useSlidingPanel } from './hooks/useSlidingPanel';
+import renderBlock from './renderer/renderBlock';
 import TocPanel from './renderer/TocPanel';
-import { useToc } from './hooks/useToc';
 
 type MarkdownRendererProps = {
   source: string;

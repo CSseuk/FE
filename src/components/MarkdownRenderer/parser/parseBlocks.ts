@@ -1,6 +1,7 @@
 import type { Block, InlineToken } from '../types/MarkdownRenderer.types';
-import slugify from './utils';
+
 import parseInlines from './parseInlines';
+import slugify from './utils';
 
 /**
  * Markdown을 Block 배열로 파싱하는 함수
@@ -12,7 +13,7 @@ export default function parseBlocks(md: string): Block[] {
   let i = 0;
 
   while (i < lines.length) {
-    let line = lines[i];
+    const line = lines[i];
 
     // 수평선
     if (/^\s{0,3}(-{3,}|\*{3,}|_{3,})\s*$/.test(line)) {

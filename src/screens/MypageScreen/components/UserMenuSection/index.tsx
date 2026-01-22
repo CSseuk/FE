@@ -1,6 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
-import * as S from './UserMenuSection.styles';
+// import { useNavigation } from '@react-navigation/native';
+
 import { USER_MENU_LIST } from '../../constants/MypageScreen.constants';
+
+import * as S from './UserMenuSection.styles';
 
 interface UserMenuSectionProps {
   username: string;
@@ -11,7 +13,7 @@ export default function UserMenuSection({
   username,
   onEditProfile,
 }: UserMenuSectionProps) {
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
   const handleMenuPress = (routeName: string) => {
     if (routeName === 'logout') {

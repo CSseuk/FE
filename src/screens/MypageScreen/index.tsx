@@ -1,6 +1,6 @@
-import * as S from './MypageScreen.styles';
 import { UserMenuSection, CalendarSection } from './components';
 import { MOCK_USER, MOCK_COUNTS } from './mocks/MypageScreen.mocks';
+import * as S from './MypageScreen.styles';
 
 export default function MypageScreen() {
   return (

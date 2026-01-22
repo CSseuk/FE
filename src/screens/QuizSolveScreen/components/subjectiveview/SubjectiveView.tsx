@@ -1,6 +1,8 @@
-import * as S from './SubjectiveView.styles';
-import TopQuiz from '../topquiz/TopQuiz';
 import { InputLabel } from '@design-system/index';
+
+import TopQuiz from '../topquiz/TopQuiz';
+
+import * as S from './SubjectiveView.styles';
 
 type SubjectiveViewProps = {
   subjectiveAnswer: string;

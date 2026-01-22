@@ -1,10 +1,9 @@
-import { View, Text } from 'react-native';
-import * as S from './HomeScreen.styled';
-
 import { FolderBtn } from '@design-system/index';
+import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { HomeStackParamList } from '@src/navigation/navigation.types';
-import { useNavigation } from '@react-navigation/native';
+
+import * as S from './HomeScreen.styled';
 
 export default function HomeScreen() {
   const navigation =

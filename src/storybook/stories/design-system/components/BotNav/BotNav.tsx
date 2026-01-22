@@ -1,3 +1,4 @@
+import { useTheme } from '@emotion/react';
 import { useMemo } from 'react';
 import {
   Pressable,
@@ -6,7 +7,6 @@ import {
   ImageSourcePropType,
   ViewStyle,
 } from 'react-native';
-import { useTheme } from '@emotion/react';
 import {
   SafeAreaView,
   useSafeAreaInsets,
@@ -61,7 +61,11 @@ type BotNavProps = {
   };
   navigation?: {
     navigate: (name: string) => void;
-    emit: (event: any) => { defaultPrevented: boolean };
+    emit: (event: {
+      type: string;
+      target?: string;
+      canPreventDefault?: boolean;
+    }) => { defaultPrevented: boolean };
   };
   descriptors?: Record<
     string,
@@ -139,8 +143,8 @@ export default function BotNav({
           : currentSelected === item.id;
 
         const onPress = () => {
-          if (isReactNavigation) {
-            const event = navigation.emit({
+          if (isReactNavigation && navigation) {
+            const event = navigation.emit?.({
               type: 'tabPress',
               target: state.routes.find(
                 (route) => route.name === item.routeName
@@ -148,7 +152,7 @@ export default function BotNav({
               canPreventDefault: true,
             });
 
-            if (!isFocused && !event.defaultPrevented) {
+            if (!isFocused && !event?.defaultPrevented) {
               navigation.navigate(item.routeName);
             }
           } else {

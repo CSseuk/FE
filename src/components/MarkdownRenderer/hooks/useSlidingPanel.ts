@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from 'react';
 import { Animated } from 'react-native';
+
 import { PANEL_WIDTH, GRIP_WIDTH } from '../MarkdownRenderer.styles';
 
 /**
@@ -23,7 +24,8 @@ export function useSlidingPanel() {
   const togglePanel = () => {
     setIsOpen((prev) => !prev);
     Animated.spring(openAnim, {
-      toValue: (openAnim as any)._value === 1 ? 0 : 1,
+      toValue:
+        (openAnim as Animated.Value & { _value: number })._value === 1 ? 0 : 1,
       useNativeDriver: true,
       friction: 7,
       tension: 60,

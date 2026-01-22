@@ -1,6 +1,8 @@
-import React from 'react';
 import { CalendarMonth } from '@design-system/index';
+import React from 'react';
+
 import { useMonthPicker } from '../../hooks/useMonthPicker';
+
 import * as S from './CalendarSection.styles';
 
 interface CalendarSectionProps {

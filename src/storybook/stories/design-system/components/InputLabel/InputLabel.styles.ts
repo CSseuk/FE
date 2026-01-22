@@ -10,7 +10,7 @@ export const InputWrapper = styled.View`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.Neutral.N0};
+  background-color: ${({ theme }) => theme.colors.Neutral.N10};
 `;
 
 export const Label = styled.Text(({ theme }) => ({
@@ -23,9 +23,9 @@ export const Caption = styled.Text(({ theme }) => ({
   color: theme.colors.Neutral.N200,
 }));
 
-export const TextInputBox = styled.TextInput`
-  flex: 1;
-  color: ${({ theme }) => theme.colors.Neutral.N600};
-  margin-left: 4;
-  margin-right: 4;
-`;
+export const TextInputBox = styled.TextInput(({ theme }) => ({
+  flex: 1,
+  color: theme.colors.Neutral.N600,
+  marginLeft: 4,
+  marginRight: 4,
+}));

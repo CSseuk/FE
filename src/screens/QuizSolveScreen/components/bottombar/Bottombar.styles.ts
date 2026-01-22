@@ -11,14 +11,14 @@ export const Wrapper = styled.View(({ theme }) => ({
   gap: 16,
 }));
 
-export const BookMark = styled.View(({ theme }) => ({
+export const BookMark = styled.View({
   position: 'relative',
   width: 52,
   height: 52,
   borderRadius: 8,
   boxShadow: '0 0 4px 0 rgba(0,0,0,0.25)',
   cursor: 'pointer',
-}));
+});
 
 export const Image = styled.Image(() => ({
   position: 'absolute',

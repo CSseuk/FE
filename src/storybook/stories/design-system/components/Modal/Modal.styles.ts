@@ -1,4 +1,5 @@
 import styled from '@emotion/native';
+
 import type { ButtonType } from './Modal';
 
 export const ModalContainer = styled.View`

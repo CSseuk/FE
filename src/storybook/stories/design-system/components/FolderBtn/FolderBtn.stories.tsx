@@ -1,11 +1,12 @@
 // FolderBtn.stories.tsx  (storiesOf 버전)
-import React from 'react';
-import { storiesOf } from '@storybook/react-native';
 import { ThemeProvider } from '@emotion/react';
-import { View, Alert } from 'react-native';
-import theme from '@styles/theme';
-import FolderBtn from './FolderBtn';
 import type { Subject } from '@src/types/subject';
+import { storiesOf } from '@storybook/react-native';
+import theme from '@styles/theme';
+import React from 'react';
+import { View, Alert } from 'react-native';
+
+import FolderBtn from './FolderBtn';
 
 const withTheme = (Story: React.ComponentType) => (
   <ThemeProvider theme={theme}>

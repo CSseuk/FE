@@ -1,11 +1,12 @@
-import React from 'react';
-import RootNavigator from '@src/navigation/RootNavigator';
+import { ModalProvider } from '@contexts/ModalProvider';
 import { ThemeProvider } from '@emotion/react';
-import Toast from 'react-native-toast-message';
+import RootNavigator from '@src/navigation/RootNavigator';
 import theme from '@styles/theme';
 import { useFonts } from 'expo-font';
+import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Toast from 'react-native-toast-message';
 
 const SHOW_SB = process.env.EXPO_PUBLIC_STORYBOOK === '1';
 const StorybookUIRoot = SHOW_SB ? require('./.storybook').default : null;
@@ -41,10 +42,12 @@ export default function App() {
   // 앱 UI
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaProvider>
-        <RootNavigator />
-        <Toast />
-      </SafeAreaProvider>
+      <ModalProvider>
+        <SafeAreaProvider>
+          <RootNavigator />
+          <Toast />
+        </SafeAreaProvider>
+      </ModalProvider>
     </ThemeProvider>
   );
 }

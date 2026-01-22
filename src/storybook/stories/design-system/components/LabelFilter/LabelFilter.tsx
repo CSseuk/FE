@@ -1,9 +1,10 @@
-import React from 'react';
-import * as S from './LabelFilter.styles';
+import { QUIZ_LABELS, QUIZ_TYPES } from '@constants/quiz';
 import { useTheme } from '@emotion/react';
 import type { QuizType } from '@src/types/quiz';
-import { QUIZ_LABELS, QUIZ_TYPES } from '@constants/quiz';
+import React from 'react';
 import { Pressable, View } from 'react-native';
+
+import * as S from './LabelFilter.styles';
 
 export type ChipKind = QuizType | 'all';
 
@@ -20,7 +21,7 @@ export const Label = ({
   onPress,
   labelOverride,
 }: LabelChipProps) => {
-  const theme = useTheme() as any;
+  const theme = useTheme();
 
   const isAll = kind === 'all';
   const basePalette = isAll
@@ -57,7 +58,13 @@ export default function LabelFilter({
   };
 
   return (
-    <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+    <View
+      style={{
+        flexDirection: 'row',
+        gap: 8,
+        alignItems: 'center',
+      }}
+    >
       <Label
         kind="all"
         active={currentSelected === 'all'}

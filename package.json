@@ -1,13 +1,19 @@
 {
-  "name": "2025-dongguk-app",
+  "name": "CSseuk",
   "version": "1.0.0",
   "main": "index.ts",
+  "type": "module",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "prepare": "husky",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@emotion/native": "^11.11.0",
@@ -38,6 +44,7 @@
     "metro-cache": "^0.83.1",
     "metro-config": "^0.83.1",
     "moti": "^0.30.0",
+    "prettier": "^3.8.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.5",
@@ -53,6 +60,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@eslint/js": "^9.39.2",
     "@storybook/addon-actions": "6.5.7",
     "@storybook/addon-ondevice-actions": "6.5.7",
     "@storybook/addon-ondevice-controls": "6.5.7",
@@ -63,8 +71,18 @@
     "@types/react-native-web": "^0",
     "babel-plugin-module-resolver": "^5.0.2",
     "chromatic": "^13.1.4",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^17.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "patch-package": "^8.0.0",
-    "typescript": "~5.8.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.53.1"
   },
   "private": true,
   "packageManager": "yarn@4.9.2+sha512.1fc009bc09d13cfd0e19efa44cbfc2b9cf6ca61482725eb35bbc5e257e093ebf4130db6dfe15d604ff4b79efd8e1e8e99b25fa7d0a6197c9f9826358d4d65c3c",

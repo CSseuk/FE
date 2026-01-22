@@ -1,3 +1,6 @@
+import { getButtonSizeMap, type ComponentSize } from '@constants/componentSize';
+import { useTheme } from '@emotion/react';
+import { Feather } from '@expo/vector-icons';
 import React from 'react';
 import {
   View,
@@ -8,13 +11,9 @@ import {
   ViewStyle,
   Pressable,
 } from 'react-native';
-import { useTheme } from '@emotion/react';
-
-import { Feather } from '@expo/vector-icons';
 
 type FeatherName = React.ComponentProps<typeof Feather>['name'];
 
-type size = 'S' | 'M' | 'L';
 type Status = 'Default' | 'Pressed' | 'Disabled';
 type Variant = 'Primary' | 'Tertiary';
 
@@ -27,7 +26,7 @@ type Triplet = {
 type Props = {
   title: string;
   onPress?: () => void;
-  size?: size;
+  size?: ComponentSize;
   status?: Status;
   button?: Variant;
   instance?: string;
@@ -35,7 +34,6 @@ type Props = {
   rightIconName?: FeatherName;
   leftIconNode?: React.ReactNode;
   rightIconNode?: React.ReactNode;
-
   loading?: boolean;
   style?: StyleProp<ViewStyle>;
   visualDisabled?: boolean;
@@ -58,42 +56,7 @@ export default function Button({
 }: Props) {
   const theme = useTheme();
 
-  const sizeMap: Record<
-    size,
-    {
-      paddingV: number;
-      paddingH: number;
-      font: any;
-      icon: number;
-      gap: number;
-      radius?: number;
-    }
-  > = {
-    S: {
-      paddingV: 10,
-      paddingH: 4,
-      font: theme.typography.Button_Small,
-      icon: 16,
-      gap: 4,
-      radius: 6,
-    },
-    M: {
-      paddingV: 14,
-      paddingH: 8,
-      font: theme.typography.Button_Medium,
-      icon: 20,
-      gap: 4,
-      radius: 8,
-    },
-    L: {
-      paddingV: 18,
-      paddingH: 12,
-      font: theme.typography.Button_Large,
-      icon: 24,
-      gap: 4,
-      radius: 12,
-    },
-  };
+  const { paddingH, font, icon, gap, radius, height } = getButtonSizeMap(size);
 
   const buttonStyleMap: Record<Variant, Record<Status, Triplet>> = {
     Primary: {
@@ -132,8 +95,6 @@ export default function Button({
     },
   };
 
-  const { paddingV, paddingH, font, icon, gap, radius } = sizeMap[size];
-
   const buildLeftIcon = (color: string) => {
     if (loading) return null;
     if (leftIconNode)
@@ -170,10 +131,10 @@ export default function Button({
         const visual: Status = isDisabled
           ? 'Disabled'
           : visualDisabled
-          ? 'Disabled'
-          : pressed
-          ? 'Pressed'
-          : 'Default';
+            ? 'Disabled'
+            : pressed
+              ? 'Pressed'
+              : 'Default';
         const triplet = buttonStyleMap[button][visual];
 
         return [
@@ -186,8 +147,8 @@ export default function Button({
             borderColor: triplet.border,
             borderWidth: 1,
             borderRadius: radius,
-            paddingVertical: paddingV,
             paddingHorizontal: paddingH,
+            height: height,
           },
           style,
         ];
@@ -198,10 +159,10 @@ export default function Button({
         const visual: Status = isDisabled
           ? 'Disabled'
           : visualDisabled
-          ? 'Disabled'
-          : pressed
-          ? 'Pressed'
-          : 'Default';
+            ? 'Disabled'
+            : pressed
+              ? 'Pressed'
+              : 'Default';
         const triplet = buttonStyleMap[button][visual];
 
         const Left = buildLeftIcon(triplet.color!);

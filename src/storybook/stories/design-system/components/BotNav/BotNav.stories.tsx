@@ -1,11 +1,11 @@
 // src/storybook/stories/design-system/components/BotNav/BotNav.stories.tsx
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react-native';
-import { View, ScrollView, Text, SafeAreaView, Platform } from 'react-native';
 import { ThemeProvider } from '@emotion/react';
+import { storiesOf } from '@storybook/react-native';
+import theme from '@styles/theme';
+import React, { useState } from 'react';
+import { View, ScrollView, Text, SafeAreaView, Platform } from 'react-native';
 
 import BotNav from './BotNav';
-import theme from '@styles/theme';
 
 // 공통 데코레이터 (실제 테마 적용 + 바텀에 고정 배치)
 const withTheme = (Story: React.ComponentType) => (

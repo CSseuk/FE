@@ -1,7 +1,9 @@
-import type { Block } from '../types/MarkdownRenderer.types';
-import { LayoutChangeEvent } from 'react-native';
+import { LayoutChangeEvent, ViewStyle } from 'react-native';
 import { View } from 'react-native';
+
 import * as S from '../MarkdownRenderer.styles';
+import type { Block } from '../types/MarkdownRenderer.types';
+
 import renderInline from './renderInline';
 
 /**
@@ -35,18 +37,21 @@ export default function renderBlock(
     case 'list':
       return (
         <S.List key={idx}>
-          {b.items.map((it, i) => (
-            <S.ListItem key={i} style={{ marginLeft: it.level * 12 }}>
-              {typeof it.checked === 'boolean' ? (
-                <S.ListBullet>{it.checked ? '☑' : '☐'}</S.ListBullet>
-              ) : (
-                <S.ListBullet>{b.ordered ? `${i + 1}.` : '•'}</S.ListBullet>
-              )}
-              <S.ListText>
-                {it.inlines.map((t, j) => renderInline(t, j, openURL))}
-              </S.ListText>
-            </S.ListItem>
-          ))}
+          {b.items.map((it, i) => {
+            const listItemStyle: ViewStyle = { marginLeft: it.level * 12 };
+            return (
+              <S.ListItem key={i} style={listItemStyle}>
+                {typeof it.checked === 'boolean' ? (
+                  <S.ListBullet>{it.checked ? '☑' : '☐'}</S.ListBullet>
+                ) : (
+                  <S.ListBullet>{b.ordered ? `${i + 1}.` : '•'}</S.ListBullet>
+                )}
+                <S.ListText>
+                  {it.inlines.map((t, j) => renderInline(t, j, openURL))}
+                </S.ListText>
+              </S.ListItem>
+            );
+          })}
         </S.List>
       );
 

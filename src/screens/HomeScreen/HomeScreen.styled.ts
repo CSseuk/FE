@@ -13,13 +13,12 @@ export const Container = styled.View(() => ({
   flexDirection: 'column',
   justifyContent: 'center',
   gap: 24,
-  // paddingHorizontal: 24,
+  paddingHorizontal: 24,
 }));
 
 export const Title = styled.Text(({ theme }) => ({
   ...theme.typography.H2,
   color: theme.colors.Neutral.N800,
-  paddingHorizontal: 24,
 }));
 
 export const DetailText = styled.Text(({ theme }) => ({

@@ -1,12 +1,11 @@
-// components/Button/Button.column.stories.tsx
-import React from 'react';
-import { storiesOf } from '@storybook/react-native';
-import { View, ScrollView, Text } from 'react-native';
 import { ThemeProvider } from '@emotion/react';
 import { Feather } from '@expo/vector-icons';
+import { storiesOf } from '@storybook/react-native';
+import theme from '@styles/theme';
+import React from 'react';
+import { View, ScrollView, Text } from 'react-native';
 
 import Button from './Button';
-import theme from '@styles/theme';
 
 const withTheme = (Story: React.ComponentType) => (
   <ThemeProvider theme={theme}>

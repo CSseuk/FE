@@ -1,21 +1,18 @@
-import React from 'react';
-import * as S from './QuizListScreen.styles';
-
-import { FlatList } from 'react-native';
-
 import { QBox } from '@design-system/index';
-
 import {
   useRoute,
   type RouteProp,
   useNavigation,
 } from '@react-navigation/native';
-import type { HomeStackParamList } from '@src/navigation/navigation.types';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { HomeStackParamList } from '@src/navigation/navigation.types';
 import type { QuizType } from '@src/types/quiz';
-import SolveCountBox from './components/solvecountbox/SolveCountBox';
+import React from 'react';
+import { FlatList } from 'react-native';
 
+import SolveCountBox from './components/solvecountbox/SolveCountBox';
 import { QUIZLIST_DB } from './mocks/QuizListScreen.mock';
+import * as S from './QuizListScreen.styles';
 
 type QuizListRoute = RouteProp<HomeStackParamList, 'QuizList'>;
 

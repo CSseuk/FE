@@ -1,5 +1,5 @@
-import type { QuizType } from '@src/types/quiz';
 import { SolveState } from '@design-system/QBox/qbox.types';
+import type { QuizType } from '@src/types/quiz';
 
 type QuizListItem = {
   id: number;

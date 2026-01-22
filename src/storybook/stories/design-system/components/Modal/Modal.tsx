@@ -1,8 +1,10 @@
 import { useModal } from '@contexts/ModalProvider';
-import Button from '../Button/Button';
-import * as S from './Modal.styles';
-import type { ImageSourcePropType } from 'react-native';
 import React from 'react';
+import type { ImageSourcePropType } from 'react-native';
+
+import Button from '../Button/Button';
+
+import * as S from './Modal.styles';
 
 export type ButtonType = 'single' | 'double';
 
@@ -12,7 +14,7 @@ interface ModalProps {
   title?: string;
   content?: string;
   onConfirm?: () => void;
-  onCancel: () => void;
+  onCancel?: () => void;
   children?: React.ReactNode;
 }
 
@@ -31,7 +33,7 @@ export default function Modal({
   const handleClose = () => {
     setIsOpen(false);
     setModalContent(null);
-    onCancel();
+    onCancel?.();
   };
 
   // 확인 버튼 클릭 핸들러
@@ -66,14 +68,14 @@ export default function Modal({
               <S.ButtonFlex>
                 <Button
                   onPress={handleClose}
-                  title='취소'
-                  size='M'
-                  button='Tertiary'
+                  title="취소"
+                  size="M"
+                  button="Tertiary"
                 />
               </S.ButtonFlex>
             )}
             <S.ButtonFlex>
-              <Button onPress={handleConfirm} title='확인' size='M' />
+              <Button onPress={handleConfirm} title="확인" size="M" />
             </S.ButtonFlex>
           </S.ButtonContainer>
         )}
