@@ -1,4 +1,3 @@
-// components/Button/Button.column.stories.tsx
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { View, ScrollView, Text } from 'react-native';

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react-native';
 import { ThemeProvider } from '@emotion/react';
-import { View } from 'react-native';
+import { storiesOf } from '@storybook/react-native';
 import theme from '@styles/theme';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+
 import InputLabel from './InputLabel';
 
 const SIZES = ['S', 'M', 'L'] as const;
@@ -35,8 +36,8 @@ const Case = ({
   return (
     <InputLabel
       label={`Input Label (${withIcons ? 'Icons' : 'No Icons'})`}
-      caption='Caption Text'
-      placeholder='placeholder'
+      caption="Caption Text"
+      placeholder="placeholder"
       value={value}
       onChange={setValue}
       size={size}

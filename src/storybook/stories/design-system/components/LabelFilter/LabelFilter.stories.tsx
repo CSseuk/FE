@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react-native';
 import { ThemeProvider } from '@emotion/react';
-import { View } from 'react-native';
-import theme from '@styles/theme';
-import LabelFilter from './LabelFilter';
 import type { QuizType } from '@src/types/quiz';
+import { storiesOf } from '@storybook/react-native';
+import theme from '@styles/theme';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+
+import LabelFilter from './LabelFilter';
 
 const withTheme = (Story: React.ComponentType) => (
   <ThemeProvider theme={theme}>
